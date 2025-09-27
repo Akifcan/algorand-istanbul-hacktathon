@@ -8,7 +8,19 @@ export default function Demo() {
         fetch('/api/docs/create-account')
     }
 
+    const handleSendToken = () => {
+        fetch('/api/docs/send-token')
+    }
+
+    const handleCreateNFT = () => {
+        fetch('/api/docs/create-nft')
+    }
+
     return <DashboardLayout>
-        <Button onClick={handleCreateAccount}>create account</Button>
+        <div className="flex gap-2">
+            <Button onClick={handleCreateAccount}>create account</Button>
+            <Button onClick={handleSendToken}>send token</Button>
+            <Button onClick={handleCreateNFT}>create nft</Button>
+        </div>
     </DashboardLayout>
 }
