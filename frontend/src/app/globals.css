@@ -57,13 +57,13 @@
   --secondary-foreground: #000000;
   --muted: #f5f5f5;
   --muted-foreground: #666666;
-  --accent: #DCFE54;
+  --accent: #2d2df1;
   --accent-foreground: #000000;
   --destructive: #FF684E;
   --border: #e5e5e5;
   --input: #e5e5e5;
-  --ring: #DCFE54;
-  --chart-1: #DCFE54;
+  --ring: #2d2df1;
+  --chart-1: #2d2df1;
   --chart-2: #FF684E;
   --chart-3: #000000;
   --chart-4: #666666;
@@ -72,10 +72,10 @@
   --sidebar-foreground: #000000;
   --sidebar-primary: #000000;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #DCFE54;
+  --sidebar-accent: #2d2df1;
   --sidebar-accent-foreground: #000000;
   --sidebar-border: #e5e5e5;
-  --sidebar-ring: #DCFE54;
+  --sidebar-ring: #2d2df1;
 }
 
 .dark {
@@ -91,13 +91,13 @@
   --secondary-foreground: #ffffff;
   --muted: #1a1a1a;
   --muted-foreground: #999999;
-  --accent: #DCFE54;
+  --accent: #2d2df1;
   --accent-foreground: #000000;
   --destructive: #FF684E;
   --border: #333333;
   --input: #333333;
-  --ring: #DCFE54;
-  --chart-1: #DCFE54;
+  --ring: #2d2df1;
+  --chart-1: #2d2df1;
   --chart-2: #FF684E;
   --chart-3: #ffffff;
   --chart-4: #999999;
@@ -106,10 +106,10 @@
   --sidebar-foreground: #ffffff;
   --sidebar-primary: #ffffff;
   --sidebar-primary-foreground: #000000;
-  --sidebar-accent: #DCFE54;
+  --sidebar-accent: #2d2df1;
   --sidebar-accent-foreground: #000000;
   --sidebar-border: #333333;
-  --sidebar-ring: #DCFE54;
+  --sidebar-ring: #2d2df1;
 }
 
 @layer base {
@@ -124,16 +124,16 @@
 
 @layer components {
   .algo-gradient {
-    background: linear-gradient(135deg, #DCFE54 0%, #ffffff 100%);
+    background: linear-gradient(135deg, #2d2df1 0%, #ffffff 100%);
   }
 
   .algo-hero-gradient {
-    background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(220, 254, 84, 0.15) 0%, transparent 60%),
+    background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(45, 45, 241, 0.15) 0%, transparent 60%),
                 radial-gradient(ellipse 60% 50% at 50% 120%, rgba(255, 104, 78, 0.1) 0%, transparent 60%);
   }
 
   .algo-accent-gradient {
-    background: linear-gradient(135deg, #DCFE54 0%, #FF684E 100%);
+    background: linear-gradient(135deg, #2d2df1 0%, #FF684E 100%);
   }
 
   .code-block {
