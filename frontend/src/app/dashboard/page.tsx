@@ -57,12 +57,16 @@ export default function Dashboard() {
 
     return (
         <DashboardLayout>
-            <div className="flex items-center justify-center min-h-full">
+            <div className="flex items-center justify-center min-h-full relative">
+                <img src="/shapes/Symbol.svg" alt="symbol" className="absolute left-0 z-[0]" />
+                <div className="relative z-[1]">
+
                 {walletData ? (
                     <WalletDisplay walletData={walletData} />
                 ) : (
                     <WalletCreation />
                 )}
+                </div>
             </div>
         </DashboardLayout>
     );
