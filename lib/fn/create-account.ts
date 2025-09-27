@@ -1,6 +1,7 @@
 // import { AlgorandClient } from '@algorandfoundation/algokit-utils/types/algorand-client';
 import algosdk from 'algosdk'
 import dotenv from 'dotenv'
+import { saveTransaction } from '../api/supabase.js'
 
 const createAccount = async () => {
 
@@ -15,13 +16,14 @@ const createAccount = async () => {
         //     await dispenserClient.fund(account.addr, 1_000_000);
         //     funded = true
         // }
+        await saveTransaction(account.addr.toString(), "account-create", account.addr.toString())
         return {
             account,
             mnemonic,
             funded
         }
 
-    }catch(e){
+    } catch (e) {
         return e
     }
 

@@ -27,7 +27,7 @@
     "react-dom": "19.1.0",
     "tailwind-merge": "^3.3.1",
     "zustand": "^5.0.8",
-    "algoflow-sdk": "file:./lib-1.1.2.tgz"
+    "algoflow-sdk": "file:./lib-1.1.5.tgz"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

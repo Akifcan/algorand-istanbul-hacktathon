@@ -1,4 +1,5 @@
 import algosdk from 'algosdk';
+import { saveTransaction } from '../api/supabase.js';
 
 const sendToken = async (senderMnemonic: string, receiver: string, amount: number) => {
     const algodToken = '';
@@ -33,7 +34,10 @@ const sendToken = async (senderMnemonic: string, receiver: string, amount: numbe
 
         const signedTxn = txn.signTxn(senderAccount.sk);
         const res = await client.sendRawTransaction(signedTxn).do();
+
         await algosdk.waitForConfirmation(client, res.txid, 4);
+        await saveTransaction(senderAccount.addr.toString(), "nft-create", res.txid)
+
         return res
     } catch (err) {
         console.error("HATA:", err);

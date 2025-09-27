@@ -1,6 +1,6 @@
 {
   "name": "lib",
-  "version": "1.1.2",
+  "version": "1.1.5",
   "type": "module",
   "main": "./dist/index.js",
   "scripts": {
@@ -12,6 +12,7 @@
   "description": "",
   "dependencies": {
     "@algorandfoundation/algokit-utils": "^9.1.2",
+    "@supabase/supabase-js": "^2.58.0",
     "algokit": "^0.0.1",
     "algosdk": "^3.5.2",
     "dotenv": "^17.2.2"

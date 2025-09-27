@@ -1,6 +1,7 @@
 import algosdk from 'algosdk';
 import { createHash } from 'crypto';
 import { AlgorandClient } from '@algorandfoundation/algokit-utils/types/algorand-client';
+import { saveTransaction } from '../api/supabase.js';
 
 const createNft = async (
     senderMnemonic: string,
@@ -29,6 +30,9 @@ const createNft = async (
         url: meta.metadataURL,
         metadataHash: metadataHash,
     })
+
+    await saveTransaction(senderAccount.addr.toString(), "nft-create", createNFTResult.assetId.toString())
+
 
     return createNFTResult
 
