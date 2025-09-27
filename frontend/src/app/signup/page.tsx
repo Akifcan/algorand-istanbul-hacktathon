@@ -6,15 +6,27 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Label } from "@/components/ui/label";
 import { Eye, EyeOff } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { supabase } from "@/config/supabase";
+import { Alert, AlertDescription } from "@/components/ui/alert";
 
 export default function Signup() {
+  const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [alert, setAlert] = useState<{
+    show: boolean;
+    message: string;
+    variant: "default" | "destructive" | "success" | "warning";
+  }>({
+    show: false,
+    message: "",
+    variant: "default"
+  });
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
     email: "",
     password: "",
     confirmPassword: ""
@@ -27,10 +39,49 @@ export default function Signup() {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const showAlert = (message: string, variant: "default" | "destructive" | "success" | "warning") => {
+    setAlert({
+      show: true,
+      message,
+      variant
+    });
+    // Auto hide after 5 seconds
+    setTimeout(() => {
+      setAlert(prev => ({ ...prev, show: false }));
+    }, 5000);
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle signup logic here
-    console.log("Signup attempt:", formData);
+
+    // Check if passwords match
+    if (formData.password !== formData.confirmPassword) {
+      showAlert("Passwords don't match!", "destructive");
+      return;
+    }
+
+    setIsLoading(true);
+
+    try {
+      const { data, error } = await supabase.auth.signUp({
+        email: formData.email,
+        password: formData.password,
+      });
+
+      if (error) {
+        showAlert(`Signup failed: ${error.message}`, "destructive");
+      } else {
+        showAlert("Signup successful! Please check your email to confirm your account.", "success");
+        setTimeout(() => {
+          router.push("/login");
+        }, 2000);
+      }
+    } catch (err) {
+      showAlert("An unexpected error occurred. Please try again.", "destructive");
+      console.error("Signup error:", err);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -38,6 +89,13 @@ export default function Signup() {
       <Navbar />
       <div className="flex items-center justify-center p-4 py-16">
         <div className="w-full max-w-md space-y-8">
+          {/* Alert */}
+          {alert.show && (
+            <Alert variant={alert.variant} onClose={() => setAlert(prev => ({ ...prev, show: false }))}>
+              <AlertDescription>{alert.message}</AlertDescription>
+            </Alert>
+          )}
+
           {/* Header */}
           <div className="text-center space-y-4">
             <div>
@@ -56,34 +114,6 @@ export default function Signup() {
             <CardContent className="space-y-6">
               {/* Registration Form */}
               <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="firstName">First Name</Label>
-                    <Input
-                      id="firstName"
-                      name="firstName"
-                      type="text"
-                      placeholder="John"
-                      value={formData.firstName}
-                      onChange={handleInputChange}
-                      required
-                      className="h-12"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="lastName">Last Name</Label>
-                    <Input
-                      id="lastName"
-                      name="lastName"
-                      type="text"
-                      placeholder="Doe"
-                      value={formData.lastName}
-                      onChange={handleInputChange}
-                      required
-                      className="h-12"
-                    />
-                  </div>
-                </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="email">Email</Label>
@@ -176,8 +206,12 @@ export default function Signup() {
                   </Label>
                 </div>
 
-                <Button type="submit" className="w-full h-12 bg-accent text-white hover:bg-accent/90">
-                  Create Account
+                <Button
+                  type="submit"
+                  className="w-full h-12 bg-accent text-white hover:bg-accent/90"
+                  disabled={isLoading}
+                >
+                  {isLoading ? "Creating Account..." : "Create Account"}
                 </Button>
               </form>
 

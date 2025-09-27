@@ -6,11 +6,25 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Label } from "@/components/ui/label";
 import { Eye, EyeOff } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { supabase } from "@/config/supabase";
+import { Alert, AlertDescription } from "@/components/ui/alert";
 
 export default function Login() {
+  const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [alert, setAlert] = useState<{
+    show: boolean;
+    message: string;
+    variant: "default" | "destructive" | "success" | "warning";
+  }>({
+    show: false,
+    message: "",
+    variant: "default"
+  });
   const [formData, setFormData] = useState({
     email: "",
     password: ""
@@ -23,10 +37,42 @@ export default function Login() {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const showAlert = (message: string, variant: "default" | "destructive" | "success" | "warning") => {
+    setAlert({
+      show: true,
+      message,
+      variant
+    });
+    // Auto hide after 5 seconds
+    setTimeout(() => {
+      setAlert(prev => ({ ...prev, show: false }));
+    }, 5000);
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle login logic here
-    console.log("Login attempt:", formData);
+    setIsLoading(true);
+
+    try {
+      const { error } = await supabase.auth.signInWithPassword({
+        email: formData.email,
+        password: formData.password,
+      });
+
+      if (error) {
+        showAlert(`Login failed: ${error.message}`, "destructive");
+      } else {
+        showAlert("Login successful! Redirecting...", "success");
+        setTimeout(() => {
+          router.push("/dashboard");
+        }, 1500);
+      }
+    } catch (err) {
+      showAlert("An unexpected error occurred. Please try again.", "destructive");
+      console.error("Login error:", err);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
 
@@ -35,6 +81,13 @@ export default function Login() {
       <Navbar />
       <div className="flex items-center justify-center p-4 py-16">
         <div className="w-full max-w-md space-y-8">
+          {/* Alert */}
+          {alert.show && (
+            <Alert variant={alert.variant} onClose={() => setAlert(prev => ({ ...prev, show: false }))}>
+              <AlertDescription>{alert.message}</AlertDescription>
+            </Alert>
+          )}
+
           {/* Header */}
           <div className="text-center space-y-4">
             <div>
@@ -115,8 +168,12 @@ export default function Login() {
                 </Link>
               </div>
 
-              <Button type="submit" className="w-full h-12 bg-accent text-white hover:bg-accent/90">
-                Sign In
+              <Button
+                type="submit"
+                className="w-full h-12 bg-accent text-white hover:bg-accent/90"
+                disabled={isLoading}
+              >
+                {isLoading ? "Signing In..." : "Sign In"}
               </Button>
             </form>
 
