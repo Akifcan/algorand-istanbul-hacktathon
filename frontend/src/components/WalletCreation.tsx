@@ -1,11 +1,10 @@
 "use client"
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Copy, Loader2, AlertTriangle } from "lucide-react";
 import useUserStore from "@/store/user";
 import ViewWalletButton from "./ViewWalletButton";
+import Wallet from "./icons/Wallet";
 
 interface WalletResponse {
     mnemonic: string;
@@ -53,7 +52,7 @@ export default function WalletCreation() {
         <div className="w-full max-w-6xl space-y-8">
             {!walletData ? (
                 <>
-                    {/* Header Section - Terminal Style */}
+                    {/* Hero Section - Terminal Style */}
                     <div className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-3xl p-8 text-white">
                         <div className="absolute inset-0 opacity-20">
                             <div className="absolute inset-0" style={{
@@ -64,14 +63,7 @@ export default function WalletCreation() {
                         <div className="relative z-10">
                             <div className="flex items-center gap-4 mb-6">
                                 <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-blue-500 rounded-xl flex items-center justify-center">
-                                    <svg
-                                        className="w-8 h-8 text-white"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
-                                    </svg>
+                                    <Wallet />
                                 </div>
                                 <div>
                                     <h1 className="text-3xl font-bold font-mono">$ create-wallet</h1>
@@ -80,7 +72,7 @@ export default function WalletCreation() {
                                     </p>
                                 </div>
                             </div>
-                            
+
                             <div className="grid md:grid-cols-2 gap-6">
                                 <div className="bg-black/30 backdrop-blur-sm rounded-xl p-6 border border-gray-700">
                                     <div className="flex items-center gap-2 mb-4">
@@ -131,10 +123,9 @@ export default function WalletCreation() {
                                     </Button>
 
                                     {error && (
-                                        <Alert variant="destructive" className="mt-4 bg-destructive/10 border-destructive/20">
-                                            <AlertTriangle className="h-4 w-4 text-destructive" />
-                                            <AlertDescription className="text-destructive text-sm">{error}</AlertDescription>
-                                        </Alert>
+                                        <div className="mt-4 p-3 bg-red-900/50 border border-red-500 rounded-lg">
+                                            <p className="text-red-300 text-xs font-mono">ERROR: {error}</p>
+                                        </div>
                                     )}
                                 </div>
                             </div>
@@ -190,7 +181,7 @@ export default function WalletCreation() {
                                 </svg>
                             </div>
                         </div>
-                        
+
                         <div className="space-y-3">
                             <h1 className="text-3xl font-bold text-foreground">Wallet Created!</h1>
                             <p className="text-muted-foreground">
@@ -200,35 +191,38 @@ export default function WalletCreation() {
                     </div>
 
                     {/* Warning Alert */}
-                    <Alert className="border-destructive/50 bg-destructive/10">
-                        <AlertTriangle className="h-4 w-4 text-destructive" />
-                        <AlertDescription className="text-destructive">
-                            <strong>Important:</strong> Save this information immediately. It will not be shown again.
-                        </AlertDescription>
-                    </Alert>
+                    <div className="bg-amber-50 dark:bg-amber-950 border border-amber-200 dark:border-amber-800 rounded-lg p-4">
+                        <div className="flex items-center gap-2">
+                            <AlertTriangle className="h-4 w-4 text-amber-600 dark:text-amber-400" />
+                            <p className="text-amber-800 dark:text-amber-200 text-sm">
+                                <strong>Important:</strong> Save this information immediately. It will not be shown again.
+                            </p>
+                        </div>
+                    </div>
 
-                    {/* Wallet Information */}
+                    {/* Wallet Information - Neumorphism Style */}
                     <div className="grid lg:grid-cols-2 gap-8">
                         {/* Wallet Address Card */}
-                        <div className="bg-card border border-border rounded-2xl p-6 space-y-4">
-                            <div className="flex items-center gap-3">
-                                <div className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center">
-                                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                                    </svg>
+                        <div className="bg-gray-100 dark:bg-gray-800 rounded-3xl p-8 shadow-[inset_-2px_-2px_6px_rgba(255,255,255,0.1),inset_2px_2px_6px_rgba(0,0,0,0.1)] dark:shadow-[inset_-2px_-2px_6px_rgba(255,255,255,0.05),inset_2px_2px_6px_rgba(0,0,0,0.3)]">
+                            <div className="flex items-center gap-3 mb-6">
+                                <div className="w-12 h-12 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-2xl flex items-center justify-center shadow-lg">
+                                    <div className="w-6 h-6 bg-white rounded-lg"></div>
                                 </div>
-                                <h3 className="text-lg font-semibold text-foreground">Wallet Address</h3>
+                                <div>
+                                    <h3 className="text-xl font-bold text-gray-800 dark:text-white">Wallet Address</h3>
+                                    <p className="text-sm text-gray-500 dark:text-gray-400">Public identifier</p>
+                                </div>
                             </div>
-                            <div className="bg-muted rounded-xl p-4">
-                                <code className="text-sm break-all font-mono text-foreground leading-relaxed">
+
+                            <div className="bg-white dark:bg-gray-900 rounded-2xl p-4 mb-6 shadow-inner">
+                                <code className="text-xs break-all font-mono text-gray-700 dark:text-gray-300 leading-relaxed">
                                     {walletData.address}
                                 </code>
                             </div>
+
                             <div className="space-y-2">
                                 <Button
-                                    variant="outline"
-                                    className="w-full"
+                                    className="w-full bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white shadow-lg"
                                     onClick={() => copyToClipboard(walletData.address)}
                                 >
                                     <Copy className="h-4 w-4 mr-2" />
@@ -239,23 +233,25 @@ export default function WalletCreation() {
                         </div>
 
                         {/* Recovery Phrase Card */}
-                        <div className="bg-card border border-border rounded-2xl p-6 space-y-4">
-                            <div className="flex items-center gap-3">
-                                <div className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center">
-                                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1721 9z" />
-                                    </svg>
+                        <div className="bg-gray-100 dark:bg-gray-800 rounded-3xl p-8 shadow-[inset_-2px_-2px_6px_rgba(255,255,255,0.1),inset_2px_2px_6px_rgba(0,0,0,0.1)] dark:shadow-[inset_-2px_-2px_6px_rgba(255,255,255,0.05),inset_2px_2px_6px_rgba(0,0,0,0.3)]">
+                            <div className="flex items-center gap-3 mb-6">
+                                <div className="w-12 h-12 bg-gradient-to-br from-amber-400 to-orange-500 rounded-2xl flex items-center justify-center shadow-lg">
+                                    <div className="w-6 h-6 bg-white rounded-lg"></div>
                                 </div>
-                                <h3 className="text-lg font-semibold text-foreground">Recovery Phrase</h3>
+                                <div>
+                                    <h3 className="text-xl font-bold text-gray-800 dark:text-white">Recovery Phrase</h3>
+                                    <p className="text-sm text-gray-500 dark:text-gray-400">Private access key</p>
+                                </div>
                             </div>
-                            <div className="bg-muted rounded-xl p-4">
-                                <code className="text-sm break-all font-mono text-foreground leading-relaxed">
+
+                            <div className="bg-white dark:bg-gray-900 rounded-2xl p-4 mb-6 shadow-inner">
+                                <code className="text-xs break-all font-mono text-gray-700 dark:text-gray-300 leading-relaxed">
                                     {walletData.mnemonic}
                                 </code>
                             </div>
+
                             <Button
-                                variant="outline"
-                                className="w-full"
+                                className="w-full bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white shadow-lg"
                                 onClick={() => copyToClipboard(walletData.mnemonic)}
                             >
                                 <Copy className="h-4 w-4 mr-2" />

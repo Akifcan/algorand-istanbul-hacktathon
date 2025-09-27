@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Copy, Eye, EyeOff } from "lucide-react";
 import ViewWalletButton from "./ViewWalletButton";
 import Wallet from "./icons/Wallet";
+import Reference from "./icons/Reference";
+import Security from "./icons/Security";
 
 interface WalletData {
     id: number;
@@ -50,7 +52,7 @@ export default function WalletDisplay({ walletData }: WalletDisplayProps) {
                             <Wallet />
                         </div>
                         <div>
-                            <h1 className="text-3xl font-bold font-mono">$ algo-wallet</h1>
+                            <h1 className="text-3xl font-bold font-mono">algo-wallet</h1>
                             <p className="text-gray-300 font-mono text-sm">
                                 Created: {formatDate(walletData.created_at)}
                             </p>
@@ -97,9 +99,7 @@ export default function WalletDisplay({ walletData }: WalletDisplayProps) {
                 {/* Wallet Address - Neumorphism Card */}
                 <div className="bg-gray-100 dark:bg-gray-800 rounded-3xl p-8 shadow-[inset_-2px_-2px_6px_rgba(255,255,255,0.1),inset_2px_2px_6px_rgba(0,0,0,0.1)] dark:shadow-[inset_-2px_-2px_6px_rgba(255,255,255,0.05),inset_2px_2px_6px_rgba(0,0,0,0.3)]">
                     <div className="flex items-center gap-3 mb-6">
-                        <div className="w-12 h-12 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-2xl flex items-center justify-center shadow-lg">
-                            <div className="w-6 h-6 bg-white rounded-lg"></div>
-                        </div>
+                        <Reference />
                         <div>
                             <h3 className="text-xl font-bold text-gray-800 dark:text-white">Wallet Address</h3>
                             <p className="text-sm text-gray-500 dark:text-gray-400">Public identifier</p>
@@ -124,9 +124,7 @@ export default function WalletDisplay({ walletData }: WalletDisplayProps) {
                 {/* API Secret - Neumorphism Card */}
                 <div className="bg-gray-100 dark:bg-gray-800 rounded-3xl p-8 shadow-[inset_-2px_-2px_6px_rgba(255,255,255,0.1),inset_2px_2px_6px_rgba(0,0,0,0.1)] dark:shadow-[inset_-2px_-2px_6px_rgba(255,255,255,0.05),inset_2px_2px_6px_rgba(0,0,0,0.3)]">
                     <div className="flex items-center gap-3 mb-6">
-                        <div className="w-12 h-12 bg-gradient-to-br from-amber-400 to-orange-500 rounded-2xl flex items-center justify-center shadow-lg">
-                            <div className="w-6 h-6 bg-white rounded-lg"></div>
-                        </div>
+                        <Security />
                         <div>
                             <h3 className="text-xl font-bold text-gray-800 dark:text-white">API Secret</h3>
                             <p className="text-sm text-gray-500 dark:text-gray-400">Private access key</p>

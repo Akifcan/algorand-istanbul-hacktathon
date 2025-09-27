@@ -13,7 +13,7 @@ export async function POST(req: Request, context: any) {
 
     const mnemonic = algosdk.secretKeyToMnemonic(account.sk);
 
-    await dispenserClient.fund(account.addr, 1_000_000);
+    // await dispenserClient.fund(account.addr, 1_000_000);
 
     const { error: insertError } = await supabase
         .from('accounts')
