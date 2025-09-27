@@ -15,9 +15,8 @@ export function Navbar() {
             <div className="ml-10 flex items-baseline space-x-8">
               <a href="#features" className="text-foreground hover:text-accent transition-colors px-3 py-2 text-sm font-medium">Features</a>
               <a href="#use-cases" className="text-foreground hover:text-accent transition-colors px-3 py-2 text-sm font-medium">Use Cases</a>
-              <a href="#docs" className="text-foreground hover:text-accent transition-colors px-3 py-2 text-sm font-medium">Docs</a>
+              <a href="/docs" className="text-foreground hover:text-accent transition-colors px-3 py-2 text-sm font-medium">Docs</a>
               <a href="#github" className="text-foreground hover:text-accent transition-colors px-3 py-2 text-sm font-medium">GitHub</a>
-              <a href="#contact" className="text-foreground hover:text-accent transition-colors px-3 py-2 text-sm font-medium">Contact</a>
             </div>
           </div>
           <div className="hidden md:block">
