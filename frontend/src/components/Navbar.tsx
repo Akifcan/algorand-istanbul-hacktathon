@@ -15,10 +15,15 @@ export function Navbar() {
     if (error) {
       return
     }
-    if (!data.session?.user.email) {
+    if(!data.session){
       return
     }
-    setUser({ email: data.session?.user.email })
+
+    if (!data.session) {
+      return
+    }
+    
+    setUser({ email: data.session?.user.email!, id: data.session.user.id })
   }
 
   useEffect(() => {

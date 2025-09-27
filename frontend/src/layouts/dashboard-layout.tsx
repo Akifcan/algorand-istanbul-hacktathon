@@ -1,17 +1,20 @@
 "use client"
-import { ReactNode, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Home, Settings, Menu, X, User, Bell, Search, LogOut } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { supabase } from "@/config/supabase";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import useUserStore from "@/store/user";
 
 export default function DashboardLayout({children}: {children: ReactNode}) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
+  const { user, setUser } = useUserStore()
 
+  
   const sidebarItems = [
     { id: "home", label: "Home", icon: Home, href: "/dashboard" },
     { id: "settings", label: "Settings", icon: Settings, href: "/dashboard/settings" },
@@ -29,6 +32,26 @@ export default function DashboardLayout({children}: {children: ReactNode}) {
       console.error('Logout error:', err);
     }
   };
+
+  const handleSession = async () => {
+    const { data, error } = await supabase.auth.getSession()
+    if (error) {
+      return
+    }
+    if(!data.session){
+      return router.push('/login')
+    }
+
+    if (!data.session) {
+      return router.push('/login')
+    }
+    
+    setUser({ email: data.session?.user.email!, id: data.session.user.id })
+  }
+
+  useEffect(() => {
+    handleSession()
+  }, [])
 
   return (
     <div className="min-h-screen h-full bg-background">
@@ -99,16 +122,14 @@ export default function DashboardLayout({children}: {children: ReactNode}) {
                       <User className="h-4 w-4 text-white" />
                     </div>
                     <div className="flex-1 text-left">
-                      <p className="text-sm font-medium">John Doe</p>
-                      <p className="text-xs text-muted-foreground">john@example.com</p>
+                      <p className="text-xs text-muted-foreground">{user?.email}</p>
                     </div>
                   </button>
                 </PopoverTrigger>
                 <PopoverContent className="w-56 p-2" align="end" side="top">
                   <div className="space-y-1">
                     <div className="px-3 py-2 border-b">
-                      <p className="text-sm font-medium">John Doe</p>
-                      <p className="text-xs text-muted-foreground">john@example.com</p>
+                      <p className="text-xs text-muted-foreground">{user?.email}</p>
                     </div>
                     <Button
                       variant="ghost"
