@@ -515,143 +515,37 @@ await writeData({
       </section>
 
 
-      {/* Terminal Style CTA Section */}
-      <section className="py-20 relative overflow-hidden bg-black">
-        <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-destructive/5"></div>
+      {/* Simple CTA Section */}
+      <section className="py-32 bg-gradient-to-br from-accent/10 via-background to-destructive/10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center">
 
-        {/* Matrix Rain Effect Background */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="grid grid-cols-12 gap-4 h-full">
-            {[...Array(12)].map((_, i) => (
-              <div key={i} className="relative">
-                <div className="absolute top-0 w-full h-4 bg-gradient-to-b from-accent to-transparent animate-pulse"
-                     style={{ animationDelay: `${i * 0.5}s`, animationDuration: '3s' }}></div>
-              </div>
-            ))}
-          </div>
-        </div>
+            <h2 className="text-5xl md:text-6xl font-black text-foreground mb-8 leading-tight">
+              Ready to Start
+              <span className="block bg-gradient-to-r from-accent to-destructive bg-clip-text text-transparent">
+                Building?
+              </span>
+            </h2>
 
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-5xl mx-auto">
+            <p className="text-2xl text-muted-foreground mb-16 max-w-2xl mx-auto">
+              Everything you need to integrate AlgoPOS is waiting for you in our documentation
+            </p>
 
-            {/* Terminal Window */}
-            <div className="bg-gray-900 rounded-2xl shadow-2xl border border-gray-700 overflow-hidden">
-
-              {/* Terminal Header */}
-              <div className="bg-gray-800 px-6 py-4 flex items-center justify-between border-b border-gray-700">
-                <div className="flex items-center space-x-3">
-                  <div className="flex space-x-2">
-                    <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                    <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                    <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                  </div>
-                  <div className="text-gray-400 text-sm font-mono">terminal — algopos-setup</div>
-                </div>
-                <div className="text-gray-500 text-xs">⌘ C to copy</div>
-              </div>
-
-              {/* Terminal Content */}
-              <div className="p-8 bg-black font-mono text-sm">
-
-                {/* Installation Commands */}
-                <div className="mb-8">
-                  <div className="text-accent mb-2">$ npm install algopos</div>
-                  <div className="text-gray-400 mb-4">
-                    <span className="text-green-500">✓</span> Installing AlgoPOS SDK...
-                  </div>
-
-                  <div className="text-accent mb-2">$ touch app.js</div>
-                  <div className="text-gray-400 mb-4">
-                    <span className="text-green-500">✓</span> Creating your first app...
-                  </div>
-                </div>
-
-                {/* Code Block */}
-                <div className="bg-gray-900 rounded-lg p-6 mb-8 border border-gray-700">
-                  <div className="text-gray-500 text-xs mb-3">app.js</div>
-                  <div className="space-y-2">
-                    <div><span className="text-purple-400">import</span> <span className="text-white">{ sendPayment }</span> <span className="text-purple-400">from</span> <span className="text-green-400">"algopos"</span></div>
-                    <div className="text-gray-500">// Send your first transaction</div>
-                    <div><span className="text-blue-400">await</span> <span className="text-yellow-400">sendPayment</span>({</div>
-                    <div className="pl-4"><span className="text-white">amount:</span> <span className="text-orange-400">1</span>,</div>
-                    <div className="pl-4"><span className="text-white">to:</span> <span className="text-green-400">"ALGO_ADDRESS"</span></div>
-                    <div>})</div>
-                  </div>
-                </div>
-
-                {/* Success Output */}
-                <div className="text-green-400 mb-6">
-                  <div>✅ Transaction sent successfully!</div>
-                  <div>🎉 Welcome to the Algorand ecosystem</div>
-                </div>
-
-                {/* Prompt */}
-                <div className="flex items-center">
-                  <span className="text-accent mr-2">$</span>
-                  <div className="w-2 h-5 bg-accent animate-pulse"></div>
-                </div>
-              </div>
+            <div className="relative inline-block">
+              <div className="absolute -inset-8 bg-gradient-to-r from-accent to-destructive rounded-full blur-3xl opacity-30 animate-pulse"></div>
+              <Button
+                size="lg"
+                className="relative bg-accent text-black hover:bg-accent/90 font-bold text-2xl px-16 py-8 rounded-2xl shadow-2xl transform hover:scale-105 transition-all duration-300"
+              >
+                📚 Go to Docs
+                <ExternalLink className="ml-4 h-8 w-8" />
+              </Button>
             </div>
 
-            {/* Action Buttons Below Terminal */}
-            <div className="mt-12 text-center">
-              <div className="mb-8">
-                <h3 className="text-3xl font-bold text-white mb-4">Start Building in Seconds</h3>
-                <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-                  Copy the commands above or click below to access our comprehensive documentation
-                </p>
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                <Button
-                  size="lg"
-                  className="bg-accent text-black hover:bg-accent/90 font-bold text-lg px-8 py-6 min-w-48"
-                  onClick={() => navigator.clipboard.writeText('npm install algopos')}
-                >
-                  <Copy className="mr-3 h-5 w-5" />
-                  Copy Install Command
-                </Button>
-
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="border-gray-600 text-white hover:bg-gray-800 text-lg px-8 py-6 min-w-48"
-                >
-                  <Code className="mr-3 h-5 w-5" />
-                  View Full Docs
-                </Button>
-
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="border-gray-600 text-white hover:bg-gray-800 text-lg px-8 py-6 min-w-48"
-                >
-                  <svg className="mr-3 h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clipRule="evenodd" />
-                  </svg>
-                  GitHub Repo
-                </Button>
-              </div>
-
-              {/* Quick Stats */}
-              <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-accent mb-2">5min</div>
-                  <div className="text-gray-400 text-sm">Setup Time</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-accent mb-2">1000+</div>
-                  <div className="text-gray-400 text-sm">Developers</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-accent mb-2">50+</div>
-                  <div className="text-gray-400 text-sm">Live Apps</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-accent mb-2">24/7</div>
-                  <div className="text-gray-400 text-sm">Support</div>
-                </div>
-              </div>
+            <div className="mt-16 text-muted-foreground">
+              <p className="text-lg">
+                5-minute setup • API reference • Examples • Community support
+              </p>
             </div>
           </div>
         </div>
