@@ -1,0 +1,9 @@
+# Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
+_commit: 0.3.5
+_src_path: gh:algorandfoundation/algokit-typescript-template
+author_email: akfkara97@gmail.com
+author_name: Akifcan
+contract_name: algoflow_vault
+preset_name: starter
+project_name: contracts
+
