@@ -10,6 +10,8 @@ import useUserStore from "@/store/user";
 
 export default function DashboardLayout({children}: {children: ReactNode}) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [isLoading, setLoading] = useState(true)
+
   const pathname = usePathname();
   const router = useRouter();
   const { user, setUser } = useUserStore()
@@ -47,11 +49,16 @@ export default function DashboardLayout({children}: {children: ReactNode}) {
     }
     
     setUser({ email: data.session?.user.email!, id: data.session.user.id })
+    setLoading(false)
   }
 
   useEffect(() => {
     handleSession()
   }, [])
+
+  if(isLoading){
+    return <p>Please wait...</p>
+  }
 
   return (
     <div className="min-h-screen h-full bg-background">
