@@ -1,1 +1,1 @@
-{"version":3,"file":"supabase.d.ts","sourceRoot":"","sources":["../../api/supabase.ts"],"names":[],"mappings":"AAGA,QAAA,MAAM,eAAe,GAAS,QAAO,MAAM,EAAE,MAAM,gBAAgB,GAAG,YAAY,GAAG,YAAY,EAAE,MAAM,MAAM,kBAQ9G,CAAA;AAED,OAAO,EACH,eAAe,EAClB,CAAA"}
+{"version":3,"file":"supabase.d.ts","sourceRoot":"","sources":["../../api/supabase.ts"],"names":[],"mappings":"AAGA,QAAA,MAAM,eAAe,GAAS,QAAO,MAAM,EAAE,MAAM,gBAAgB,GAAG,YAAY,GAAG,YAAY,GAAG,aAAa,EAAE,MAAM,MAAM,kBAQ9H,CAAA;AAED,OAAO,EACH,eAAe,EAClB,CAAA"}

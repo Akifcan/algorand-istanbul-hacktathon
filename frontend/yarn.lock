@@ -1145,9 +1145,9 @@ ajv@^6.12.4:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
-"algoflow-sdk@file:./lib-1.1.6.tgz":
-  version "1.1.6"
-  resolved "file:./lib-1.1.6.tgz#bfc2c3b543d10a5e3a5695f738e597fafbd150cc"
+"algoflow-sdk@file:./lib-1.2.4.tgz":
+  version "1.2.4"
+  resolved "file:./lib-1.2.4.tgz#d6914497fa0b9d039dbd8a797dc0b6793724f2f6"
   dependencies:
     "@algorandfoundation/algokit-utils" "^9.1.2"
     "@supabase/supabase-js" "^2.58.0"
