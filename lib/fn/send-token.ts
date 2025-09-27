@@ -36,7 +36,7 @@ const sendToken = async (senderMnemonic: string, receiver: string, amount: numbe
         const res = await client.sendRawTransaction(signedTxn).do();
 
         await algosdk.waitForConfirmation(client, res.txid, 4);
-        await saveTransaction(senderAccount.addr.toString(), "nft-create", res.txid)
+        await saveTransaction(senderAccount.addr.toString(), "send-token", res.txid)
 
         return res
     } catch (err) {
