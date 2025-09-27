@@ -75,8 +75,8 @@ export default function DashboardLayout({children}: {children: ReactNode}) {
               <Menu className="h-5 w-5" />
             </Button>
             <div className="flex items-center gap-2">
-              <img src="/images/logo.png" alt="logo" className="w-8 h-6 object-cover" />
-              <h1 className="text-xl font-bold text-foreground">AlgoPOS</h1>
+              <img src="/images/logo-2.png" alt="logo" style={{width: 70}} />
+              <h1 className="text-xl font-bold text-foreground">AlgoFlow</h1>
             </div>
           </div>
         </div>

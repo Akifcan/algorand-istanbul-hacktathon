@@ -70,12 +70,12 @@ export function Hero() {
                   <div className="w-3 h-3 rounded-full bg-accent"></div>
                   <div className="w-3 h-3 rounded-full bg-green-500"></div>
                 </div>
-                <div className="text-xs text-muted-foreground font-medium">algopos.js</div>
+                <div className="text-xs text-muted-foreground font-medium">AlgoFlow.js</div>
                 <Button
                   variant="ghost"
                   size="sm"
                   className="text-muted-foreground hover:text-foreground"
-                  onClick={() => navigator.clipboard.writeText(`import { sendPayment } from "algopos"
+                  onClick={() => navigator.clipboard.writeText(`import { sendPayment } from "AlgoFlow"
 
 await sendPayment({
   from: wallet,
@@ -88,7 +88,7 @@ await sendPayment({
               </div>
               <div className="px-6 pb-6 relative z-10">
                 <pre className="text-sm text-white">
-                  <code>{`import { sendPayment } from "algopos"
+                  <code>{`import { sendPayment } from "AlgoFlow"
 
 await sendPayment({
   from: wallet,
@@ -112,7 +112,7 @@ await sendPayment({
                   variant="ghost"
                   size="sm"
                   className="text-muted-foreground hover:text-foreground"
-                  onClick={() => navigator.clipboard.writeText(`import { writeData } from "algopos"
+                  onClick={() => navigator.clipboard.writeText(`import { writeData } from "AlgoFlow"
 
 await writeData({
   key: "user_score",
@@ -124,7 +124,7 @@ await writeData({
               </div>
               <div className="px-6 pb-6 relative z-10">
                 <pre className="text-sm text-white">
-                  <code>{`import { writeData } from "algopos"
+                  <code>{`import { writeData } from "AlgoFlow"
 
 await writeData({
   key: "user_score",

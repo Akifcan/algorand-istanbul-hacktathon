@@ -37,7 +37,7 @@ export function Navbar() {
           <Link href={'/'}>
             <div className="flex items-center gap-2">
               <img src="/images/logo.png" alt="logo" style={{ width: 100, height: 70, objectFit: 'cover' }} />
-              <h1 className="text-2xl font-bold text-foreground">AlgoPOS</h1>
+              <h1 className="text-2xl font-bold text-foreground">AlgoFlow</h1>
             </div>
           </Link>
           <div className="hidden md:block">

@@ -92,7 +92,7 @@ export default function Login() {
           <div className="text-center space-y-4">
             <div>
               <h2 className="text-2xl font-bold text-foreground">Welcome Back</h2>
-              <p className="text-muted-foreground">Sign in to your AlgoPOS account</p>
+              <p className="text-muted-foreground">Sign in to your AlgoFlow account</p>
             </div>
           </div>
 

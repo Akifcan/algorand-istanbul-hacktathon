@@ -21,7 +21,7 @@ export function Features() {
               </span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-              Drop AlgoPOS into your codebase and unlock the power of Web3.
+              Drop AlgoFlow into your codebase and unlock the power of Web3.
               Zero blockchain expertise required. Production-ready in minutes.
             </p>
           </div>
@@ -40,7 +40,7 @@ export function Features() {
                   <div>
                     <h3 className="text-2xl font-bold text-foreground mb-4">Instant Plug & Play</h3>
                     <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                      Import AlgoPOS, call a function, deploy. That's it. No complex configurations,
+                      Import AlgoFlow, call a function, deploy. That's it. No complex configurations,
                       no steep learning curves. Just instant blockchain superpowers for your application.
                     </p>
                     <div className="space-y-2">
@@ -129,7 +129,7 @@ export function Features() {
             <div className="inline-flex items-center space-x-4 p-6 rounded-2xl bg-gradient-to-r from-accent/20 to-destructive/20 border border-accent/30">
               <div className="text-left">
                 <div className="text-sm font-semibold text-foreground">Ready to start building?</div>
-                <div className="text-xs text-muted-foreground">Join 1000+ developers already using AlgoPOS</div>
+                <div className="text-xs text-muted-foreground">Join 1000+ developers already using AlgoFlow</div>
               </div>
               <Button className="bg-primary text-white hover:bg-primary/90">
                 Get Started

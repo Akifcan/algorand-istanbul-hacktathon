@@ -16,7 +16,7 @@ export function CTASection() {
           </h2>
 
           <p className="text-2xl text-muted-foreground mb-16 max-w-2xl mx-auto">
-            Everything you need to integrate AlgoPOS is waiting for you in our documentation
+            Everything you need to integrate AlgoFlow is waiting for you in our documentation
           </p>
 
           <div className="relative inline-block">

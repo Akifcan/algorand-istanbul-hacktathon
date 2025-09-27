@@ -4,7 +4,7 @@ export function Footer() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <h3 className="text-lg font-semibold text-foreground mb-4">AlgoPOS</h3>
+            <h3 className="text-lg font-semibold text-foreground mb-4">AlgoFlow</h3>
             <p className="text-muted-foreground">
               Bridging Web2 and Web3 with developer-friendly blockchain tools.
             </p>
@@ -36,7 +36,7 @@ export function Footer() {
         </div>
         <div className="mt-8 pt-8 border-t">
           <p className="text-center text-muted-foreground">
-            © 2025 AlgoPOS. All rights reserved.
+            © 2025 AlgoFlow. All rights reserved.
           </p>
         </div>
       </div>

@@ -25,7 +25,7 @@ export function UseCases() {
                 </span>
               </h2>
               <div className="max-w-2xl mx-auto text-xl text-muted-foreground font-medium">
-                See how industry leaders are revolutionizing their businesses with AlgoPOS
+                See how industry leaders are revolutionizing their businesses with AlgoFlow
               </div>
             </div>
 
@@ -171,7 +171,7 @@ export function UseCases() {
               <div className="absolute -inset-4 bg-gradient-to-r from-accent to-destructive rounded-2xl blur-xl opacity-50"></div>
               <div className="relative bg-foreground text-background p-8 rounded-2xl">
                 <div className="text-2xl font-bold mb-4">Ready to Transform Your Industry?</div>
-                <div className="text-lg mb-6 opacity-80">Join 50+ companies already building with AlgoPOS</div>
+                <div className="text-lg mb-6 opacity-80">Join 50+ companies already building with AlgoFlow</div>
                 <Button size="lg" className="bg-accent text-white hover:bg-accent/90 font-bold">
                   Start Building Today
                   <ExternalLink className="ml-2 h-5 w-5" />

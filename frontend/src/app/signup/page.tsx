@@ -98,7 +98,7 @@ export default function Signup() {
           <div className="text-center space-y-4">
             <div>
               <h2 className="text-2xl font-bold text-foreground">Create Account</h2>
-              <p className="text-muted-foreground">Join AlgoPOS and start accepting payments</p>
+              <p className="text-muted-foreground">Join AlgoFlow and start accepting payments</p>
             </div>
           </div>
 
