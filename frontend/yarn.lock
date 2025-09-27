@@ -1145,6 +1145,20 @@ ajv@^6.12.4:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
+"algoflow-sdk@file:./lib-1.0.9.tgz":
+  version "1.0.9"
+  resolved "file:./lib-1.0.9.tgz#77e80daa881f43df90cffa538dd0b4005501c8f0"
+  dependencies:
+    "@algorandfoundation/algokit-utils" "^9.1.2"
+    algokit "^0.0.1"
+    algosdk "^3.5.2"
+    dotenv "^17.2.2"
+
+algokit@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/algokit/-/algokit-0.0.1.tgz#a42deafa9495701f90c5fec98d227e42d237b00c"
+  integrity sha512-I6A3K3NSvA7BTcCgtHPnOXo4QQBXNf4Wt+gnwYhO+8D8AwbEP6Cf4FwqjTrB/a6rQXWzahzZ8vc0cyAN7m92HQ==
+
 algorand-msgpack@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/algorand-msgpack/-/algorand-msgpack-1.1.0.tgz#46c67c7232a3ee1bafc3c64b67fefbdb504e6560"
@@ -1533,6 +1547,11 @@ doctrine@^2.1.0:
   integrity sha512-35mSku4ZXK0vfCuHEDAwt55dg2jNajHZ1odvF+8SSr82EsZY4QmXfuWso8oEd8zRhVObSN18aM0CjSdoBX7zIw==
   dependencies:
     esutils "^2.0.2"
+
+dotenv@^17.2.2:
+  version "17.2.2"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-17.2.2.tgz#4010cfe1c2be4fc0f46fd3d951afb424bc067ac6"
+  integrity sha512-Sf2LSQP+bOlhKWWyhFsn0UsfdK/kCWRv1iuA2gXAwt3dyNabr6QSj00I2V10pidqz69soatm9ZwZvpQMTIOd5Q==
 
 dunder-proto@^1.0.0, dunder-proto@^1.0.1:
   version "1.0.1"

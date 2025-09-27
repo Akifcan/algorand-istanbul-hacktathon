@@ -172,100 +172,62 @@ export default function WalletCreation() {
                     </div>
                 </>
             ) : (
-                <>
-                    {/* Success Hero */}
-                    <div className="text-center space-y-6">
-                        <div className="relative">
-                            <div className="w-20 h-20 mx-auto bg-green-500 rounded-2xl flex items-center justify-center shadow-lg">
-                                <svg
-                                    className="w-10 h-10 text-white"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                </svg>
-                            </div>
+                <div>
+                    <div className="text-center mb-6">
+                        <div className="w-16 h-16 mx-auto bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mb-3">
+                            <span className="text-2xl">✓</span>
                         </div>
-
-                        <div className="space-y-3">
-                            <h1 className="text-3xl font-bold text-foreground">Wallet Created!</h1>
-                            <p className="text-muted-foreground">
-                                Save your credentials securely
-                            </p>
-                        </div>
+                        <h3 className="text-lg font-medium">Wallet Ready!</h3>
+                        <p className="text-gray-500 text-sm">Save these details now</p>
                     </div>
 
-                    {/* Warning Alert */}
-                    <div className="bg-amber-50 dark:bg-amber-950 border border-amber-200 dark:border-amber-800 rounded-lg p-4">
-                        <div className="flex items-center gap-2">
-                            <AlertTriangle className="h-4 w-4 text-amber-600 dark:text-amber-400" />
-                            <p className="text-amber-800 dark:text-amber-200 text-sm">
-                                <strong>Important:</strong> Save this information immediately. It will not be shown again.
-                            </p>
-                        </div>
+                    <div className="bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-800 p-3 rounded mb-4">
+                        <p className="text-orange-800 dark:text-orange-200 text-sm font-medium">
+                            ⚠️ Save immediately - won't be shown again
+                        </p>
                     </div>
 
-                    {/* Wallet Information - Neumorphism Style */}
-                    <div className="grid lg:grid-cols-2 gap-8">
-                        {/* Wallet Address Card */}
-                        <div className="bg-gray-100 dark:bg-gray-800 rounded-3xl p-8 shadow-[inset_-2px_-2px_6px_rgba(255,255,255,0.1),inset_2px_2px_6px_rgba(0,0,0,0.1)] dark:shadow-[inset_-2px_-2px_6px_rgba(255,255,255,0.05),inset_2px_2px_6px_rgba(0,0,0,0.3)]">
-                            <div className="flex items-center gap-3 mb-6">
-                                <div className="w-12 h-12 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-2xl flex items-center justify-center shadow-lg">
-                                    <div className="w-6 h-6 bg-white rounded-lg"></div>
-                                </div>
-                                <div>
-                                    <h3 className="text-xl font-bold text-gray-800 dark:text-white">Wallet Address</h3>
-                                    <p className="text-sm text-gray-500 dark:text-gray-400">Public identifier</p>
-                                </div>
+                    <div className="space-y-4">
+                        <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
+                            <h4 className="font-medium mb-2 flex items-center gap-2">
+                                <span>🏠</span> Wallet Address
+                            </h4>
+                            <div className="bg-gray-50 dark:bg-gray-800 p-3 rounded mb-3 font-mono text-sm break-all">
+                                {walletData.address}
                             </div>
-
-                            <div className="bg-white dark:bg-gray-900 rounded-2xl p-4 mb-6 shadow-inner">
-                                <code className="text-xs break-all font-mono text-gray-700 dark:text-gray-300 leading-relaxed">
-                                    {walletData.address}
-                                </code>
-                            </div>
-
-                            <div className="space-y-2">
+                            <div className="flex gap-2">
                                 <Button
-                                    className="w-full bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white shadow-lg"
                                     onClick={() => copyToClipboard(walletData.address)}
+                                    variant="outline"
+                                    size="sm"
+                                    className="flex-1"
                                 >
-                                    <Copy className="h-4 w-4 mr-2" />
-                                    Copy Address
+                                    <Copy className="h-3 w-3 mr-1" />
+                                    Copy
                                 </Button>
                                 <ViewWalletButton wallet={walletData.address} />
                             </div>
                         </div>
 
-                        {/* Recovery Phrase Card */}
-                        <div className="bg-gray-100 dark:bg-gray-800 rounded-3xl p-8 shadow-[inset_-2px_-2px_6px_rgba(255,255,255,0.1),inset_2px_2px_6px_rgba(0,0,0,0.1)] dark:shadow-[inset_-2px_-2px_6px_rgba(255,255,255,0.05),inset_2px_2px_6px_rgba(0,0,0,0.3)]">
-                            <div className="flex items-center gap-3 mb-6">
-                                <div className="w-12 h-12 bg-gradient-to-br from-amber-400 to-orange-500 rounded-2xl flex items-center justify-center shadow-lg">
-                                    <div className="w-6 h-6 bg-white rounded-lg"></div>
-                                </div>
-                                <div>
-                                    <h3 className="text-xl font-bold text-gray-800 dark:text-white">Recovery Phrase</h3>
-                                    <p className="text-sm text-gray-500 dark:text-gray-400">Private access key</p>
-                                </div>
+                        <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
+                            <h4 className="font-medium mb-2 flex items-center gap-2">
+                                <span>🔐</span> Recovery Phrase
+                            </h4>
+                            <div className="bg-gray-50 dark:bg-gray-800 p-3 rounded mb-3 font-mono text-sm break-all">
+                                {walletData.mnemonic}
                             </div>
-
-                            <div className="bg-white dark:bg-gray-900 rounded-2xl p-4 mb-6 shadow-inner">
-                                <code className="text-xs break-all font-mono text-gray-700 dark:text-gray-300 leading-relaxed">
-                                    {walletData.mnemonic}
-                                </code>
-                            </div>
-
                             <Button
-                                className="w-full bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white shadow-lg"
                                 onClick={() => copyToClipboard(walletData.mnemonic)}
+                                variant="outline"
+                                size="sm"
+                                className="w-full"
                             >
-                                <Copy className="h-4 w-4 mr-2" />
+                                <Copy className="h-3 w-3 mr-1" />
                                 Copy Recovery Phrase
                             </Button>
                         </div>
                     </div>
-                </>
+                </div>
             )}
         </div>
     );
