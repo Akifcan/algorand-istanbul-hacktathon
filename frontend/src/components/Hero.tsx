@@ -5,6 +5,7 @@ import { ExternalLink, Copy } from "lucide-react";
 export function Hero() {
   return (
     <section className="relative overflow-hidden pt-20 pb-32 sm:pt-32 sm:pb-40">
+      <img src="/shapes/Corners.svg" alt="corners" className="absolute right-[-200px] top-0 bottom-0" />
       <div className="absolute inset-0 algo-hero-gradient"></div>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
