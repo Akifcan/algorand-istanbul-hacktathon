@@ -3,6 +3,8 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Copy, Eye, EyeOff } from "lucide-react";
+import ViewWalletButton from "./ViewWalletButton";
+import Wallet from "./icons/Wallet";
 
 interface WalletData {
     id: number;
@@ -37,14 +39,7 @@ export default function WalletDisplay({ walletData }: WalletDisplayProps) {
         <div className="w-full max-w-2xl text-center space-y-8">
             {/* Wallet Icon */}
             <div className="mx-auto w-24 h-24 bg-green-100 rounded-full flex items-center justify-center">
-                <svg
-                    className="w-12 h-12 text-green-600"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
-                </svg>
+               <Wallet />
             </div>
 
             {/* Title */}
@@ -104,15 +99,7 @@ export default function WalletDisplay({ walletData }: WalletDisplayProps) {
 
                     {/* Action Buttons */}
                     <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                        <Button 
-                            className="flex-1"
-                            onClick={() => {
-                                // Perawallet görüntüleme fonksiyonu buraya eklenecek
-                                console.log('Perawallet görüntüleme');
-                            }}
-                        >
-                            Perawallet Üzerinde Görüntüle
-                        </Button>
+                        <ViewWalletButton />
                     </div>
                 </CardContent>
             </Card>
