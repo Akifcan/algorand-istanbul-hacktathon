@@ -2,6 +2,7 @@
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { useState } from "react";
+import LandingLayout from "@/layouts/landing-layout";
 
 export default function Docs() {
   const [activeSection, setActiveSection] = useState("send-pay");
@@ -340,8 +341,7 @@ const optInToNFT = async (assetId, account) => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
+    <LandingLayout>
       <div className="flex">
         {/* Sidebar */}
         <div className="w-64 min-h-screen bg-muted/30 border-r">
@@ -375,7 +375,6 @@ const optInToNFT = async (assetId, account) => {
           </div>
         </div>
       </div>
-      <Footer />
-    </div>
+     </LandingLayout>
   );
 }

@@ -7,10 +7,9 @@ import { Label } from "@/components/ui/label";
 import { Eye, EyeOff } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
 import { supabase } from "@/config/supabase";
 import { Alert, AlertDescription } from "@/components/ui/alert";
+import LandingLayout from "@/layouts/landing-layout";
 
 export default function Signup() {
   const router = useRouter();
@@ -85,8 +84,7 @@ export default function Signup() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
+    <LandingLayout>
       <div className="flex items-center justify-center p-4 py-16">
         <div className="w-full max-w-md space-y-8">
           {/* Alert */}
@@ -233,7 +231,6 @@ export default function Signup() {
           </div>
         </div>
       </div>
-      <Footer />
-    </div>
+     </LandingLayout>
   );
 }

@@ -23,9 +23,11 @@ export function Navbar() {
             </div>
           </div>
           <div className="hidden md:block">
+            <Link href={'/login'}>
             <Button className="bg-accent text-white hover:bg-accent/90">
               Get Started
             </Button>
+            </Link>
           </div>
           <div className="md:hidden">
             <Button variant="ghost" size="icon">

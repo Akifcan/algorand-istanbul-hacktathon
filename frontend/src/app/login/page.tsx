@@ -11,6 +11,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { supabase } from "@/config/supabase";
 import { Alert, AlertDescription } from "@/components/ui/alert";
+import LandingLayout from "@/layouts/landing-layout";
 
 export default function Login() {
   const router = useRouter();
@@ -77,8 +78,7 @@ export default function Login() {
 
 
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
+    <LandingLayout>
       <div className="flex items-center justify-center p-4 py-16">
         <div className="w-full max-w-md space-y-8">
           {/* Alert */}
@@ -202,7 +202,6 @@ export default function Login() {
           </div>
         </div>
       </div>
-      <Footer />
-    </div>
+     </LandingLayout>
   );
 }
