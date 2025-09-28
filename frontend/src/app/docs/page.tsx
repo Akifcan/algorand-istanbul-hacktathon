@@ -2,6 +2,7 @@
 import { useState } from "react";
 import LandingLayout from "@/layouts/landing-layout";
 import { Menu, X } from "lucide-react";
+import RedirectButton from "@/components/RedirectButton";
 
 export default function Docs() {
   const [activeSection, setActiveSection] = useState("overview");
@@ -28,7 +29,12 @@ export default function Docs() {
             <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               🚀 Algoflow SDK
             </h1>
-            <div className="space-y-6">
+
+            <div className="flex gap-2 flex-wrap">
+              <RedirectButton />
+            </div>
+
+            <div className="space-y-6 mt-2">
               <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 p-6 rounded-lg border border-blue-200 dark:border-blue-800">
                 <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
                   🌟 Overview
@@ -40,6 +46,7 @@ export default function Docs() {
                   By automating the complexity of traditional blockchain operations (wallet connections, gas fees, private key management) in the background, it enables data to be written to and read from the blockchain with just a few function calls.
                 </p>
               </div>
+
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                 <div className="bg-muted p-4 rounded-lg">

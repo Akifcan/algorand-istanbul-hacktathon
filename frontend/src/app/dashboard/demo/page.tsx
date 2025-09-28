@@ -12,6 +12,7 @@ import {
 import DashboardLayout from "@/layouts/dashboard-layout";
 import { UserPlus, Send, Image, FileText, Database, GalleryHorizontal, Key, Loader2 } from "lucide-react";
 import { useState } from "react";
+import RedirectButton from "@/components/RedirectButton";
 
 export default function Demo() {
     const [loadingStates, setLoadingStates] = useState<{[key: string]: boolean}>({});
@@ -138,6 +139,11 @@ export default function Demo() {
                     Explore blockchain functionality with these interactive demos
                 </p>
             </div>
+
+                        <div className="flex gap-2 flex-wrap mb-2">
+                          <RedirectButton />
+                        </div>
+            
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {demoFeatures.map((feature, index) => {
