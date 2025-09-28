@@ -15,7 +15,7 @@ import {
     AlertDialogTitle,
     AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import { Trash2, CheckCircle } from "lucide-react";
+import { Trash2, CheckCircle, CreditCard, DollarSign, Calendar, Zap } from "lucide-react";
 import useUserStore from "@/store/user";
 import { supabase } from "@/config/supabase";
 
@@ -38,7 +38,7 @@ export default function Settings() {
 
     return (
         <DashboardLayout>
-            <div className="space-y-6">
+            <div className="space-y-6 pb-10">
                 <div>
                     <h1 className="text-3xl font-bold text-foreground">Settings</h1>
                     <p className="text-muted-foreground">Manage your account and wallet settings</p>
@@ -54,6 +54,117 @@ export default function Settings() {
                         </AlertDescription>
                     </Alert>
                 )}
+
+                {/* Billing Section */}
+                <Card>
+                    <CardHeader>
+                        <CardTitle className="flex items-center gap-2">
+                            <CreditCard className="h-5 w-5" />
+                            Billing & Usage
+                        </CardTitle>
+                        <CardDescription>
+                            Manage your billing information and view usage charges
+                        </CardDescription>
+                    </CardHeader>
+                    <CardContent className="space-y-6">
+                        {/* Current Bill */}
+                        <div className="border rounded-lg p-4 bg-blue-50 dark:bg-blue-950/20 border-blue-200 dark:border-blue-800">
+                            <div className="flex items-center justify-between mb-3">
+                                <h3 className="font-semibold text-blue-900 dark:text-blue-100">Current Bill</h3>
+                                <span className="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 px-2 py-1 rounded text-sm font-medium">
+                                    Due: Dec 31, 2024
+                                </span>
+                            </div>
+                            <div className="flex items-center justify-between">
+                                <div className="flex items-center gap-3">
+                                    <div className="bg-blue-600 p-2 rounded-lg">
+                                        <DollarSign className="h-6 w-6 text-white" />
+                                    </div>
+                                    <div>
+                                        <p className="text-2xl font-bold text-blue-900 dark:text-blue-100">$100.00 USDC</p>
+                                        <p className="text-sm text-blue-700 dark:text-blue-300">Pay-as-you-go charges</p>
+                                    </div>
+                                </div>
+                                <Button className="bg-blue-600 hover:bg-blue-700">
+                                    Pay Now
+                                </Button>
+                            </div>
+                        </div>
+
+                        {/* Usage Breakdown */}
+                        <div className="space-y-4">
+                            <h4 className="font-medium text-foreground">Usage Breakdown</h4>
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <div className="border rounded-lg p-4">
+                                    <div className="flex items-center gap-3 mb-2">
+                                        <Zap className="h-4 w-4 text-yellow-600" />
+                                        <span className="font-medium">API Calls</span>
+                                    </div>
+                                    <p className="text-2xl font-bold">12,450</p>
+                                    <p className="text-sm text-muted-foreground">$0.005 per call = $62.25</p>
+                                </div>
+                                <div className="border rounded-lg p-4">
+                                    <div className="flex items-center gap-3 mb-2">
+                                        <CreditCard className="h-4 w-4 text-purple-600" />
+                                        <span className="font-medium">Transactions</span>
+                                    </div>
+                                    <p className="text-2xl font-bold">250</p>
+                                    <p className="text-sm text-muted-foreground">$0.01 per tx = $2.50</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Payment Method */}
+                        <div className="border rounded-lg p-4">
+                            <h4 className="font-medium mb-3">Payment Method</h4>
+                            <div className="flex items-center justify-between">
+                                <div className="flex items-center gap-3">
+                                    <div className="bg-gray-100 dark:bg-gray-700 p-2 rounded">
+                                        <CreditCard className="h-5 w-5" />
+                                    </div>
+                                    <div>
+                                        <p className="font-medium">USDC Wallet</p>
+                                        <p className="text-sm text-muted-foreground">Auto-pay enabled</p>
+                                    </div>
+                                </div>
+                                <Button variant="outline" size="sm">
+                                    Change
+                                </Button>
+                            </div>
+                        </div>
+
+                        {/* Billing History */}
+                        <div className="border rounded-lg p-4">
+                            <h4 className="font-medium mb-3">Recent Billing History</h4>
+                            <div className="space-y-2">
+                                <div className="flex items-center justify-between py-2 border-b last:border-b-0">
+                                    <div>
+                                        <p className="font-medium">November 2024</p>
+                                        <p className="text-sm text-muted-foreground">Paid on Dec 1, 2024</p>
+                                    </div>
+                                    <span className="font-medium text-green-600">$89.75 USDC</span>
+                                </div>
+                                <div className="flex items-center justify-between py-2 border-b last:border-b-0">
+                                    <div>
+                                        <p className="font-medium">October 2024</p>
+                                        <p className="text-sm text-muted-foreground">Paid on Nov 1, 2024</p>
+                                    </div>
+                                    <span className="font-medium text-green-600">$156.20 USDC</span>
+                                </div>
+                                <div className="flex items-center justify-between py-2">
+                                    <div>
+                                        <p className="font-medium">September 2024</p>
+                                        <p className="text-sm text-muted-foreground">Paid on Oct 1, 2024</p>
+                                    </div>
+                                    <span className="font-medium text-green-600">$203.45 USDC</span>
+                                </div>
+                            </div>
+                            <Button variant="outline" className="w-full mt-4">
+                                View All History
+                            </Button>
+                        </div>
+                    </CardContent>
+                </Card>
 
                 {/* Danger Zone */}
                 <Card className="border-red-200 dark:border-red-800">
