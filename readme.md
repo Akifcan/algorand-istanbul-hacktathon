@@ -1,4 +1,4 @@
-# Algo POS App - Algorand Blockchain Point of Sale System
+# AlgoFlow Sdk - Developer Focued Blockchain SDK
 
 <div align="center">
   <img src="algorand-logo-white-CMYK.png" width="300" />
@@ -12,7 +12,7 @@
 
 ## Overview
 
-**Algo POS App** is a revolutionary Point of Sale (POS) system built on the Algorand blockchain that bridges traditional retail with decentralized payments. This project consists of two main components:
+**Algoflow** is an innovative development toolkit that simplifies data storage and access processes for developers using the Algorand blockchain infrastructure. By automating the complexity of traditional blockchain operations (wallet connections, gas fees, private key management) in the background, it enables data to be written to and read from the blockchain with just a few function calls.
 
 1. **Algoflow SDK** - A developer-friendly toolkit that simplifies Algorand blockchain integration
 2. **POS Frontend** - A modern Next.js web application providing an intuitive interface for blockchain-based transactions
@@ -40,7 +40,7 @@
 ## Project Structure
 
 ```
-algo-pos-app/
+algo-flow-app/
 ├── lib/                    # Algoflow SDK Package
 │   ├── dist/              # Compiled TypeScript output
 │   ├── fn/                # Core SDK functions
