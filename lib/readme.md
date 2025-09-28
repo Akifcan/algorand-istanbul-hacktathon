@@ -24,7 +24,7 @@
 
 ### 🛠️ Local Development
 ```bash
-# Install via npm
+# Install via yarn
 yarn add algoflow-sdk
 ```
 
