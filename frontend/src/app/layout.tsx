@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Algoflow SDK Dashboard",
+  title: "Algoflow SDK | Powering Algorand, Faster.",
   description: "Algorand Istanbul Hackathon",
 };
 

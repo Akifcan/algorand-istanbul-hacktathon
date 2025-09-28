@@ -10,6 +10,14 @@
 
 ---
 
+## Team Members:
+
+- Akifcan Kara
+
+## Team Name:
+
+- Algoflow | Powering Algorand, Faster.
+
 ## Overview
 
 **Algoflow** is an innovative development toolkit that simplifies data storage and access processes for developers using the Algorand blockchain infrastructure. By automating the complexity of traditional blockchain operations (wallet connections, gas fees, private key management) in the background, it enables data to be written to and read from the blockchain with just a few function calls.
