@@ -142,15 +142,7 @@ export default function CargoTrack() {
                     </div>
                   </div>
 
-                  <button
-                    onClick={() => window.location.href = '/register'}
-                    className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg font-semibold transition-colors duration-200 flex items-center space-x-2"
-                  >
-                    <span>Try It Now</span>
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </button>
+             
                 </div>
               </div>
             </div>
@@ -192,6 +184,44 @@ export default function CargoTrack() {
             <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-6">
               Package Timeline
             </h4>
+
+         <div className="flex items-center space-x-3 mb-5">
+                    <a
+                      href="https://lora.algokit.io/testnet/application/746498651"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-200 flex items-center space-x-2"
+                    >
+                      <img src="/images/logo-3.png" alt="logo" style={{width: 50}} />
+                      <span>View Status Chain</span>
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </a>
+
+                    <a
+                      href="https://lora.algokit.io/testnet/application/746525050"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-200 flex items-center space-x-2"
+                    >
+                      <img src="/images/logo-3.png" alt="logo" style={{width: 50}} />
+                      <span>View Coords Chain</span>
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </a>
+
+                    <button
+                      onClick={() => window.location.href = '/register'}
+                      className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg font-semibold transition-colors duration-200 flex items-center space-x-2"
+                    >
+                      <span>Try It Now</span>
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </button>
+                  </div>
 
             <div className="relative">
               {shipmentStatuses.map((shipment: any, index: number) => {
