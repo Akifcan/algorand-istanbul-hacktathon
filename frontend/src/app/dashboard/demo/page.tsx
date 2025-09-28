@@ -119,7 +119,7 @@ export default function Demo() {
             endpoint: "/api/docs/opt-in"
         },
         {
-            title: "NFT",
+            title: "Get NFT",
             description: "Get NFT Details",
             icon: GalleryHorizontal,
             onClick: handleGetNft,
