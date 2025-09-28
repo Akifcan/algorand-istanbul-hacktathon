@@ -1,9 +1,13 @@
 "use client"
 import { Package, MapPin, CheckCircle, Truck, AlertCircle } from "lucide-react";
 import { useEffect, useState } from "react";
+import dynamic from "next/dynamic"
+import 'leaflet/dist/leaflet.css'
+const TrackMap = dynamic(() => import("../../../components/Map"), { ssr:false })
 
 export default function CargoTrack() {
   const [shipmentStatuses, setShipmentStatuses] = useState([]);
+  const [coordinates, setCoordinates] = useState([]);
 
   const handleStatus = async () => {
     try {
@@ -20,7 +24,7 @@ export default function CargoTrack() {
       const response = await fetch('/api/cargo-track/coords');
       const data = await response.json();
       console.log(data)
-      // setShipmentStatuses(data.res || []);
+      setCoordinates(data.res || []);
     } catch (error) {
       console.error('Error fetching status:', error);
     }
@@ -111,8 +115,14 @@ export default function CargoTrack() {
             </div>
           </div>
 
+          <div className="flex gap-2">
+
+            <div className="flex-1">
+                      <TrackMap coordinates={coordinates} />
+            </div>
+
           {/* Timeline */}
-          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6 border border-gray-200 dark:border-gray-700">
+          <div className="flex-1 bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6 border border-gray-200 dark:border-gray-700">
             <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-6">
               Package Timeline
             </h4>
@@ -155,6 +165,7 @@ export default function CargoTrack() {
                 );
               })}
             </div>
+          </div>
           </div>
         </div>
       </div>
