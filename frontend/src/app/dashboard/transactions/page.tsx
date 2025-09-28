@@ -89,7 +89,7 @@ export default function Transactions(){
                                 <Wallet className="h-8 w-8 text-blue-600 dark:text-blue-400" />
                             </div>
                             <h3 className="text-lg font-semibold text-blue-900 dark:text-blue-100 mb-2">
-                                You haven't created a wallet yet
+                                You haven&apos;t created a wallet yet
                             </h3>
                             <p className="text-blue-700 dark:text-blue-300 mb-4 max-w-md">
                                 To view your transaction history, you need to create a wallet first.
