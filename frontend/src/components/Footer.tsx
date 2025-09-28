@@ -14,23 +14,12 @@ export function Footer() {
             <ul className="space-y-2">
               <li><a href="#" className="text-muted-foreground hover:text-accent transition-colors">Docs</a></li>
               <li><a href="#" className="text-muted-foreground hover:text-accent transition-colors">API Reference</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-accent transition-colors">Examples</a></li>
             </ul>
           </div>
           <div>
             <h4 className="text-sm font-semibold text-foreground mb-4">Community</h4>
             <ul className="space-y-2">
               <li><a href="#" className="text-muted-foreground hover:text-accent transition-colors">GitHub</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-accent transition-colors">Discord</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-accent transition-colors">Twitter</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-sm font-semibold text-foreground mb-4">Support</h4>
-            <ul className="space-y-2">
-              <li><a href="#" className="text-muted-foreground hover:text-accent transition-colors">Contact</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-accent transition-colors">Brand Guidelines</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-accent transition-colors">Status</a></li>
             </ul>
           </div>
         </div>
