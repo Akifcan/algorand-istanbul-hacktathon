@@ -1,4 +1,4 @@
-import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet'
+import { MapContainer, TileLayer, Marker, Popup, Polyline, useMap } from 'react-leaflet'
 import L from 'leaflet'
 import { useEffect } from 'react'
 
@@ -26,7 +26,7 @@ function MapUpdater({ center }: { center: [number, number] }) {
   const map = useMap();
 
   useEffect(() => {
-    map.setView(center, 13);
+    map.setView(center, 6);
   }, [map, center]);
 
   return null;
@@ -39,24 +39,38 @@ export default function Map({ coordinates = [] }: MapProps){
       : defaultCenter;
 
     return <div className='rounded-lg overflow-hidden shadow-lg'>
-        <MapContainer center={mapCenter as [number, number]} style={{width: '100%', height: 400}} zoom={13} scrollWheelZoom={false}>
+        <MapContainer center={mapCenter as [number, number]} style={{width: '100%', height: 400}} zoom={6} scrollWheelZoom={false}>
             <MapUpdater center={mapCenter as [number, number]} />
             <TileLayer
               attribution='&copy; <a href="https://www.google.com/maps">Google Maps</a>'
               url="https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}"
             />
             {coordinates.length > 0 ? (
-              coordinates.map((coord, index) => (
-                <Marker
-                  key={index}
-                  position={[coord.lat, coord.long]}
-                  icon={customIcon}
-                >
-                  <Popup>
-                    Lokasyon {index + 1}: {coord.lat}, {coord.long}
-                  </Popup>
-                </Marker>
-              ))
+              <>
+                {/* Polyline connecting all coordinates */}
+                <Polyline
+                  positions={coordinates.map(coord => [coord.lat, coord.long])}
+                  pathOptions={{
+                    color: '#ef4444',
+                    weight: 4,
+                    opacity: 0.8,
+                    dashArray: '10, 5'
+                  }}
+                />
+
+                {/* Markers for each coordinate */}
+                {coordinates.map((coord, index) => (
+                  <Marker
+                    key={index}
+                    position={[coord.lat, coord.long]}
+                    icon={customIcon}
+                  >
+                    <Popup>
+                      Lokasyon {index + 1}: {coord.lat}, {coord.long}
+                    </Popup>
+                  </Marker>
+                ))}
+              </>
             ) : (
               <Marker position={defaultCenter as [number, number]} icon={customIcon}>
               </Marker>
