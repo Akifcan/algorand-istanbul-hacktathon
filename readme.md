@@ -92,8 +92,8 @@ algo-flow-app/
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/your-username/algo-pos-app.git
-cd algo-pos-app
+git clone https://github.com/Akifcan/algorand-istanbul-hacktathon
+cd cd algorand-istanbul-hackathon
 ```
 
 ### 2. Install SDK Dependencies
