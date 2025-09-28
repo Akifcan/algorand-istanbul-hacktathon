@@ -1,7 +1,7 @@
 # Algo POS App - Algorand Blockchain Point of Sale System
 
 <div align="center">
-  <img src="https://algorand.co/assets/media-kit/logos/full/png/algorand_full_logo_black.png" width="300" />
+  <img src="algorand-logo-white-CMYK.png" width="300" />
 
   ![Blockchain](https://img.shields.io/badge/Blockchain-Enabled-0078D7?style=for-the-badge&logo=blockchain)
   ![Algorand](https://img.shields.io/badge/Algorand-000000?style=for-the-badge&logo=algorand&logoColor=white)
