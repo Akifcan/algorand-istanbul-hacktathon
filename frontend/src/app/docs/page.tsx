@@ -81,11 +81,11 @@ export default function Docs() {
               <div className="bg-muted p-4 sm:p-6 rounded-lg">
                 <h3 className="text-xl font-semibold mb-4">🛠️ Local Development</h3>
                 <p className="text-muted-foreground mb-4">
-                  Install the Algoflow SDK from the local package:
+                  Install the Algoflow SDK via npm:
                 </p>
                 <div className="code-block p-3 sm:p-4">
                   <pre className="text-xs sm:text-sm overflow-x-auto">
-{`# Install from local package
+{`# Install via npm
 yarn add algoflow-sdk`}
                   </pre>
                 </div>
