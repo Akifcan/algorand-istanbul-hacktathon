@@ -1,5 +1,5 @@
 "use client"
-import { Package, MapPin, CheckCircle, Truck, AlertCircle, ArrowLeft } from "lucide-react";
+import { Package, MapPin, CheckCircle, Truck, ArrowLeft } from "lucide-react";
 import { useEffect, useState } from "react";
 import dynamic from "next/dynamic"
 import 'leaflet/dist/leaflet.css'
@@ -118,7 +118,7 @@ export default function CargoTrack() {
                     </h4>
                     <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-3">
                       <code className="text-sm text-gray-800 dark:text-gray-200">
-                        <span className="text-blue-600 dark:text-blue-400">import</span> {"{ getVault }"} <span className="text-blue-600 dark:text-blue-400">from</span> <span className="text-green-600 dark:text-green-400">'algoflow-sdk'</span>
+                        <span className="text-blue-600 dark:text-blue-400">import</span> {"{ getVault }"} <span className="text-blue-600 dark:text-blue-400">from</span> <span className="text-green-600 dark:text-green-400">&apos;algoflow-sdk&apos;</span>
                         <br />
                         <span className="text-blue-600 dark:text-blue-400 mt-1">const</span> coords = <span className="text-blue-600 dark:text-blue-400">await</span> <span className="text-purple-600 dark:text-purple-400">getVault</span>(746525050)
                       </code>
@@ -132,7 +132,7 @@ export default function CargoTrack() {
                     </h4>
                     <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-3">
                       <code className="text-sm text-gray-800 dark:text-gray-200">
-                        <span className="text-blue-600 dark:text-blue-400">import</span> {"{ getVault }"} <span className="text-blue-600 dark:text-blue-400">from</span> <span className="text-green-600 dark:text-green-400">'algoflow-sdk'</span>
+                        <span className="text-blue-600 dark:text-blue-400">import</span> {"{ getVault }"} <span className="text-blue-600 dark:text-blue-400">from</span> <span className="text-green-600 dark:text-green-400">&apos;algoflow-sdk&apos;</span>
                         <br />
                         <span className="text-blue-600 dark:text-blue-400 mt-1">const</span> shipmentState = <span className="text-blue-600 dark:text-blue-400">await</span> <span className="text-purple-600 dark:text-purple-400">getVault</span>(746498651)
                       </code>
