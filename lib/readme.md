@@ -1,7 +1,7 @@
 # 🚀 Algoflow SDK
 
 <div align="center">
-  <img src="algorand-logo-white-CMYK.png" width="300" />
+  <img src="algorand-logo-blue-CMYK.png" width="300" />
 
   ![Blockchain](https://img.shields.io/badge/Blockchain-Enabled-0078D7?style=for-the-badge&logo=blockchain)
   ![Algorand](https://img.shields.io/badge/Algorand-000000?style=for-the-badge&logo=algorand&logoColor=white)
