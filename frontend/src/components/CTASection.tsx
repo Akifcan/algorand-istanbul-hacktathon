@@ -1,6 +1,7 @@
 "use client"
 import { Button } from "@/components/ui/button";
 import { ExternalLink } from "lucide-react";
+import Link from "next/link";
 
 export function CTASection() {
   return (
@@ -21,13 +22,15 @@ export function CTASection() {
 
           <div className="relative inline-block">
             <div className="absolute -inset-8 bg-gradient-to-r from-accent to-destructive rounded-full blur-3xl opacity-30 animate-pulse"></div>
-            <Button
-              size="lg"
-              className="relative bg-accent text-white hover:bg-accent/90 font-bold text-2xl px-16 py-8 rounded-2xl shadow-2xl transform hover:scale-105 transition-all duration-300"
-            >
-              📚 Go to Docs
-              <ExternalLink className="ml-4 h-8 w-8" />
-            </Button>
+            <Link href={'/docs'}>
+              <Button
+                size="lg"
+                className="relative bg-accent text-white hover:bg-accent/90 font-bold text-2xl px-16 py-8 rounded-2xl shadow-2xl transform hover:scale-105 transition-all duration-300"
+              >
+                📚 Go to Docs
+                <ExternalLink className="ml-4 h-8 w-8" />
+              </Button>
+            </Link>
           </div>
 
           <div className="mt-16 text-muted-foreground">

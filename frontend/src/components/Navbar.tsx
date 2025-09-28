@@ -2,12 +2,12 @@
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/config/supabase";
 import useUserStore from "@/store/user";
-import { Menu } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export function Navbar() {
-
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { user, setUser } = useUserStore()
 
   const handleSession = async () => {
@@ -64,11 +64,80 @@ export function Navbar() {
             }
           </div>
           <div className="md:hidden">
-            <Button variant="ghost" size="icon">
-              <Menu className="h-6 w-6" />
+            <Button
+              className="hover:text-white"
+              variant="ghost"
+              size="icon"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              {mobileMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
             </Button>
           </div>
         </div>
+
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <div className="md:hidden border-t bg-background/95 backdrop-blur">
+            <div className="px-2 pt-2 pb-3 space-y-1">
+              <a
+                href="#features"
+                className="block px-3 py-2 text-base font-medium text-foreground hover:text-accent hover:bg-accent/10 rounded-md transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Features
+              </a>
+              <a
+                href="/use-cases"
+                className="block px-3 py-2 text-base font-medium text-foreground hover:text-accent hover:bg-accent/10 rounded-md transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Use Cases
+              </a>
+              <a
+                href="/docs"
+                className="block px-3 py-2 text-base font-medium text-foreground hover:text-accent hover:bg-accent/10 rounded-md transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Docs
+              </a>
+              <a
+                href="#github"
+                className="block px-3 py-2 text-base font-medium text-foreground hover:text-accent hover:bg-accent/10 rounded-md transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                GitHub
+              </a>
+
+              {/* Mobile Get Started Button */}
+              <div className="pt-4 pb-2">
+                {!user && (
+                  <Link href={'/login'}>
+                    <Button
+                      className="w-full bg-accent text-white hover:bg-accent/90"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      Get Started
+                    </Button>
+                  </Link>
+                )}
+                {user && (
+                  <Link href={'/dashboard'}>
+                    <Button
+                      className="w-full bg-accent text-white hover:bg-accent/90"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      Go to dashboard
+                    </Button>
+                  </Link>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   );
