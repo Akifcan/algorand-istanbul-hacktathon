@@ -1,7 +1,7 @@
 "use client"
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Copy, Loader2, AlertTriangle } from "lucide-react";
+import { Copy, Loader2 } from "lucide-react";
 import useUserStore from "@/store/user";
 import ViewWalletButton from "./ViewWalletButton";
 
@@ -183,7 +183,7 @@ export default function WalletCreation() {
 
                     <div className="bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-800 p-3 rounded mb-4">
                         <p className="text-orange-800 dark:text-orange-200 text-sm font-medium">
-                            ⚠️ Save immediately - won't be shown again
+                            ⚠️ Save immediately - won&apos;t be shown again
                         </p>
                     </div>
 

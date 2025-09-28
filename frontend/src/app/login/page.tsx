@@ -7,8 +7,6 @@ import { Label } from "@/components/ui/label";
 import { Eye, EyeOff } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
 import { supabase } from "@/config/supabase";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import LandingLayout from "@/layouts/landing-layout";
@@ -179,7 +177,7 @@ export default function Login() {
 
             {/* Sign Up Link */}
             <div className="text-center text-sm">
-              <span className="text-muted-foreground">Don't have an account? </span>
+              <span className="text-muted-foreground">Don&apos;t have an account? </span>
               <Link href="/signup" className="text-accent hover:underline font-medium">
                 Sign up
               </Link>

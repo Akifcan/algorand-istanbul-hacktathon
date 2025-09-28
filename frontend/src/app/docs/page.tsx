@@ -1,6 +1,4 @@
 "use client"
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
 import { useState } from "react";
 import LandingLayout from "@/layouts/landing-layout";
 import { Menu, X } from "lucide-react";
@@ -194,8 +192,8 @@ console.log('Mnemonic:', newAccount.mnemonic)`}
               <div className="border-l-4 border-accent pl-3 sm:pl-4">
                 <h4 className="font-semibold mb-2">Parameters</h4>
                 <ul className="text-muted-foreground space-y-1">
-                  <li>• <strong>mnemonic</strong> (string): Sender's 25-word mnemonic phrase</li>
-                  <li>• <strong>recipient</strong> (string): Recipient's Algorand address</li>
+                  <li>• <strong>mnemonic</strong> (string): Sender&apos;s 25-word mnemonic phrase</li>
+                  <li>• <strong>recipient</strong> (string): Recipient&apos;s Algorand address</li>
                   <li>• <strong>amount</strong> (number): Amount in microALGOs (1 ALGO = 1,000,000 microALGOs)</li>
                 </ul>
               </div>
@@ -236,7 +234,7 @@ console.log('Mnemonic:', newAccount.mnemonic)`}
               <div className="border-l-4 border-accent pl-3 sm:pl-4">
                 <h4 className="font-semibold mb-2">Parameters</h4>
                 <ul className="text-muted-foreground space-y-1">
-                  <li>• <strong>mnemonic</strong> (string): Creator's 25-word mnemonic phrase</li>
+                  <li>• <strong>mnemonic</strong> (string): Creator&apos;s 25-word mnemonic phrase</li>
                   <li>• <strong>options</strong> (object): NFT configuration with metadata and URL</li>
                 </ul>
               </div>
@@ -289,7 +287,7 @@ console.log('Mnemonic:', newAccount.mnemonic)`}
               <div className="border-l-4 border-accent pl-3 sm:pl-4">
                 <h4 className="font-semibold mb-2">Parameters</h4>
                 <ul className="text-muted-foreground space-y-1">
-                  <li>• <strong>mnemonic</strong> (string): Account's 25-word mnemonic phrase</li>
+                  <li>• <strong>mnemonic</strong> (string): Account&apos;s 25-word mnemonic phrase</li>
                   <li>• <strong>assetId</strong> (number): The Asset ID to opt into</li>
                 </ul>
               </div>
@@ -386,7 +384,7 @@ console.log('NFT Name:', nftInfo.asset.params.name)`}
               <div className="border-l-4 border-accent pl-3 sm:pl-4">
                 <h4 className="font-semibold mb-2">Parameters</h4>
                 <ul className="text-muted-foreground space-y-1">
-                  <li>• <strong>mnemonic</strong> (string): Account's 25-word mnemonic phrase</li>
+                  <li>• <strong>mnemonic</strong> (string): Account&apos;s 25-word mnemonic phrase</li>
                   <li>• <strong>data</strong> (string): Data to store in the vault</li>
                 </ul>
               </div>

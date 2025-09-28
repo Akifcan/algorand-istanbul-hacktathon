@@ -149,7 +149,7 @@ export default function Demo() {
                     </li>
                     <li className="flex items-start">
                         <span className="text-blue-500 mr-2">•</span>
-                        Check your browser's developer console for API responses
+                        Check your browser&apos;s developer console for API responses
                     </li>
                     <li className="flex items-start">
                         <span className="text-blue-500 mr-2">•</span>

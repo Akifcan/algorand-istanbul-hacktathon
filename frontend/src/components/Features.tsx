@@ -10,7 +10,7 @@ export function Features() {
         <div className="max-w-6xl mx-auto">
           {/* Header Section */}
           <div className="text-center mb-20">
-            <div className="inline-flex items-center rounded-full bg-accent px-6 py-3 text-sm text-black font-bold mb-8 shadow-lg" style={{color: 'white'}}>
+            <div className="inline-flex items-center rounded-full bg-accent px-6 py-3 text-sm text-black font-bold mb-8 shadow-lg" style={{color: "white"}}>
               <div className="w-2 h-2 bg-white rounded-full mr-3 animate-pulse"></div>
               BUILT ON ALGORAND BLOCKCHAIN
             </div>
@@ -40,7 +40,7 @@ export function Features() {
                   <div>
                     <h3 className="text-2xl font-bold text-foreground mb-4">Instant Plug & Play</h3>
                     <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                      Import AlgoFlow, call a function, deploy. That's it. No complex configurations,
+                      Import AlgoFlow, call a function, deploy. That&apos;s it. No complex configurations,
                       no steep learning curves. Just instant blockchain superpowers for your application.
                     </p>
                     <div className="space-y-2">
@@ -74,7 +74,7 @@ export function Features() {
                   <div>
                     <h3 className="text-2xl font-bold text-foreground mb-4">Algorand Powered</h3>
                     <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                      Built on the world's most advanced pure proof-of-stake blockchain.
+                      Built on the world&apos;s most advanced pure proof-of-stake blockchain.
                       Enjoy instant finality, carbon-negative transactions, and enterprise-grade security.
                     </p>
                     <div className="space-y-2">
