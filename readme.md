@@ -77,7 +77,7 @@ algo-flow-app/
 - Immutable transaction records
 - Custom data vault functionality
 
-### Modern POS Interface
+### Modern Interface
 - Responsive design for tablets and desktop
 - Dark/light theme support
 - Interactive demo features
