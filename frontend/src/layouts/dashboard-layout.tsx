@@ -30,6 +30,7 @@ export default function DashboardLayout({children}: {children: ReactNode}) {
       if (error) {
         console.error('Logout error:', error);
       } else {
+        setUser(undefined)
         router.push('/login');
       }
     } catch (err) {

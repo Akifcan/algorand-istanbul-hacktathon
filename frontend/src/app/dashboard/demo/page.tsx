@@ -10,14 +10,42 @@ import {
     AlertDialogAction
 } from "@/components/ui/alert-dialog";
 import DashboardLayout from "@/layouts/dashboard-layout";
-import { UserPlus, Send, Image, FileText, Database, GalleryHorizontal, Key, Loader2 } from "lucide-react";
-import { useState } from "react";
+import { UserPlus, Send, Image, FileText, Database, GalleryHorizontal, Key, Loader2, AlertTriangle } from "lucide-react";
+import { useState, useEffect } from "react";
 import RedirectButton from "@/components/RedirectButton";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { supabase } from "@/config/supabase";
+import useUserStore from "@/store/user";
 
 export default function Demo() {
+    const { user } = useUserStore();
     const [loadingStates, setLoadingStates] = useState<{[key: string]: boolean}>({});
     const [dialogOpen, setDialogOpen] = useState(false);
     const [dialogContent, setDialogContent] = useState<{title: string, message: string}>({title: '', message: ''});
+    const [hasWallet, setHasWallet] = useState<boolean | null>(null);
+
+    // Check if user has a wallet
+    const checkWallet = async () => {
+        if (!user) {
+            return;
+        }
+
+        try {
+            const { data } = await supabase.from('accounts').select('*').eq('user_id', user.id);
+            if (!data || data.length === 0 || !data[0].wallet) {
+                setHasWallet(false);
+            } else {
+                setHasWallet(true);
+            }
+        } catch (error) {
+            console.error('Error checking wallet:', error);
+            setHasWallet(false);
+        }
+    };
+
+    useEffect(() => {
+        checkWallet();
+    }, [user]);
 
     const handleApiCall = async (endpoint: string, title: string) => {
         setLoadingStates(prev => ({...prev, [endpoint]: true}));
@@ -140,6 +168,31 @@ export default function Demo() {
                 </p>
             </div>
 
+            {/* Wallet Error Alert */}
+            {hasWallet === false && (
+                <Alert className="border-red-200 bg-red-50 dark:border-red-800 dark:bg-red-950/20 mb-6">
+                    <AlertTriangle className="h-4 w-4 text-red-600 dark:text-red-400" />
+                    <AlertDescription className="text-red-800 dark:text-red-200">
+                        <div className="flex items-center justify-between">
+                            <div>
+                                <p className="font-medium">No wallet found</p>
+                                <p className="text-sm text-red-700 dark:text-red-300">
+                                    You need to create a wallet first to use these demo features. Some functions may not work properly.
+                                </p>
+                            </div>
+                            <Button
+                                onClick={() => window.location.href = '/dashboard'}
+                                variant="outline"
+                                size="sm"
+                                className="bg-red-100 border-red-300 text-red-800 hover:bg-red-200 dark:bg-red-900/30 dark:border-red-600 dark:text-red-200 dark:hover:bg-red-900/50"
+                            >
+                                Create Wallet
+                            </Button>
+                        </div>
+                    </AlertDescription>
+                </Alert>
+            )}
+
                         <div className="flex gap-2 flex-wrap mb-2">
                           <RedirectButton />
                         </div>
@@ -219,7 +272,7 @@ export default function Demo() {
                 <AlertDialogContent>
                     <AlertDialogHeader>
                         <AlertDialogTitle>{dialogContent.title} -  <small>(CHECK THE NETWORK TAB FOR MORE DETAIL)</small></AlertDialogTitle>
-                        <AlertDialogDescription className="whitespace-pre-wrap max-h-60 overflow-y-auto">
+                        <AlertDialogDescription className="max-h-60 overflow-y-auto" style={{whiteSpace: 'normal', wordBreak: 'break-all'}}>
                             {dialogContent.message} 
                         </AlertDialogDescription>
                     </AlertDialogHeader>

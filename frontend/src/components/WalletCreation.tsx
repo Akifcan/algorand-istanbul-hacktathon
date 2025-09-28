@@ -93,16 +93,6 @@ export default function WalletCreation() {
                                             <span className="text-gray-300 font-mono text-sm">Network:</span>
                                             <span className="text-green-400 font-mono">TESTNET</span>
                                         </div>
-                                        <div className="flex items-center gap-3">
-                                            <span className="text-blue-400 font-mono">→</span>
-                                            <span className="text-gray-300 font-mono text-sm">Security:</span>
-                                            <span className="text-blue-400 font-mono">QUANTUM-SAFE</span>
-                                        </div>
-                                        <div className="flex items-center gap-3">
-                                            <span className="text-purple-400 font-mono">→</span>
-                                            <span className="text-gray-300 font-mono text-sm">Speed:</span>
-                                            <span className="text-purple-400 font-mono">10K TPS</span>
-                                        </div>
                                     </div>
                                 </div>
 
@@ -172,9 +162,9 @@ export default function WalletCreation() {
                     </div>
                 </>
             ) : (
-                <div>
+                <div className="bg-[#333] p-2 text-white! rounded-lg">
                     <div className="text-center mb-6">
-                        <div className="w-16 h-16 mx-auto bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mb-3">
+                        <div className="w-16 h-16 mx-auto bg-green-700 dark:bg-green-900 rounded-full flex items-center justify-center mb-3">
                             <span className="text-2xl">✓</span>
                         </div>
                         <h3 className="text-lg font-medium">Wallet Ready!</h3>
@@ -192,7 +182,7 @@ export default function WalletCreation() {
                             <h4 className="font-medium mb-2 flex items-center gap-2">
                                 <span>🏠</span> Wallet Address
                             </h4>
-                            <div className="bg-gray-50 dark:bg-gray-800 p-3 rounded mb-3 font-mono text-sm break-all">
+                            <div className="bg-gray-50 dark:bg-gray-800 text-black p-3 rounded mb-3 font-mono text-sm break-all">
                                 {walletData.address}
                             </div>
                             <div className="flex gap-2">
@@ -200,7 +190,7 @@ export default function WalletCreation() {
                                     onClick={() => copyToClipboard(walletData.address)}
                                     variant="outline"
                                     size="sm"
-                                    className="flex-1"
+                                    className="flex-1 text-black hover:text-white"
                                 >
                                     <Copy className="h-3 w-3 mr-1" />
                                     Copy
@@ -213,14 +203,14 @@ export default function WalletCreation() {
                             <h4 className="font-medium mb-2 flex items-center gap-2">
                                 <span>🔐</span> Recovery Phrase
                             </h4>
-                            <div className="bg-gray-50 dark:bg-gray-800 p-3 rounded mb-3 font-mono text-sm break-all">
+                            <div className="bg-gray-50 text-black dark:bg-gray-800 p-3 rounded mb-3 font-mono text-sm break-all">
                                 {walletData.mnemonic}
                             </div>
                             <Button
                                 onClick={() => copyToClipboard(walletData.mnemonic)}
                                 variant="outline"
                                 size="sm"
-                                className="w-full"
+                                className="w-full text-black hover:text-white"
                             >
                                 <Copy className="h-3 w-3 mr-1" />
                                 Copy Recovery Phrase

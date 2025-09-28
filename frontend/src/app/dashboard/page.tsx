@@ -2,6 +2,7 @@
 import DashboardLayout from "@/layouts/dashboard-layout";
 import WalletCreation from "@/components/WalletCreation";
 import WalletDisplay from "@/components/WalletDisplay";
+import TestAlgoNotification from "@/components/TestAlgoNotification";
 import { useEffect, useState } from "react";
 import { supabase } from "@/config/supabase";
 import useUserStore from "@/store/user";
@@ -57,15 +58,22 @@ export default function Dashboard() {
 
     return (
         <DashboardLayout>
-            <div className="flex items-center justify-center min-h-full relative">
+            <div className="min-h-full relative">
                 <img src="/shapes/Symbol.svg" alt="symbol" className="absolute left-0 z-[0]" />
-                <div className="relative z-[1]">
 
-                {walletData ? (
-                    <WalletDisplay walletData={walletData} />
-                ) : (
-                    <WalletCreation />
+                {/* Show test ALGO notification when wallet exists */}
+                {walletData && (
+                    <div className="relative z-[1] mb-6">
+                        <TestAlgoNotification />
+                    </div>
                 )}
+
+                <div className="flex items-center justify-center relative z-[1]">
+                    {walletData ? (
+                        <WalletDisplay walletData={walletData} />
+                    ) : (
+                        <WalletCreation />
+                    )}
                 </div>
             </div>
         </DashboardLayout>
