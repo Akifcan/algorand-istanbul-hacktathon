@@ -1,7 +1,7 @@
 "use client"
 import { ReactNode, useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Home, Settings, Menu, X, User, Bell, Search, LogOut, Play } from "lucide-react";
+import { Home, Settings, Menu, X, User, Bell, Search, LogOut, Play, Receipt } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { supabase } from "@/config/supabase";
@@ -20,6 +20,7 @@ export default function DashboardLayout({children}: {children: ReactNode}) {
   const sidebarItems = [
     { id: "home", label: "Home", icon: Home, href: "/dashboard" },
     { id: "demo", label: "Demo", icon: Play, href: "/dashboard/demo" },
+    { id: "transactions", label: "Transactions", icon: Receipt, href: "/dashboard/transactions" },
     { id: "settings", label: "Settings", icon: Settings, href: "/dashboard/settings" },
   ];
 
