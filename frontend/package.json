@@ -17,7 +17,7 @@
     "@radix-ui/react-slot": "^1.2.3",
     "@radix-ui/react-tabs": "^1.1.13",
     "@supabase/supabase-js": "^2.58.0",
-    "algoflow-sdk": "^1.2.7",
+    "algoflow-sdk": "^1.2.9",
     "algosdk": "^3.5.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",

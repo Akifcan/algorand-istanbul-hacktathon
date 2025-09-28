@@ -1,10 +1,9 @@
 import algosdk from 'algosdk'
 import { AlgorandClient } from '@algorandfoundation/algokit-utils'
-import * as fs from 'fs'
 import { saveTransaction } from '../api/supabase.js'
 
 
-const writeVault = async (mnemonic: string, value: string) => {
+const writeVault = async (appId: number, mnemonic: string, value: string) => {
     const arc56Contract = {
         "name": "AlgoflowVault",
         "structs": {},
@@ -144,7 +143,6 @@ const writeVault = async (mnemonic: string, value: string) => {
     }
 
     const account = algosdk.mnemonicToSecretKey(mnemonic)
-    const appId = 746498651
 
     const algod = new algosdk.Algodv2(
         '',
