@@ -3,6 +3,7 @@ import { Package, MapPin, CheckCircle, Truck, ArrowLeft } from "lucide-react";
 import { useEffect, useState } from "react";
 import dynamic from "next/dynamic"
 import 'leaflet/dist/leaflet.css'
+import LandingLayout from "@/layouts/landing-layout";
 const TrackMap = dynamic(() => import("../../../components/Map"), { ssr:false })
 
 export default function CargoTrack() {
@@ -66,35 +67,24 @@ export default function CargoTrack() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900">
-      {/* Header */}
-      <header className="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <button
-                onClick={() => window.location.href = '/use-cases'}
-                className="bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 p-2 rounded-lg transition-colors duration-200"
-              >
-                <ArrowLeft className="h-6 w-6 text-gray-600 dark:text-gray-300" />
-              </button>
-              <div className="bg-blue-600 p-2 rounded-lg">
-                <Package className="h-8 w-8 text-white" />
-              </div>
-              <div>
-                <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
-                  CargoTrack Pro
-                </h1>
-                <p className="text-sm text-gray-600 dark:text-gray-300">
-                  Secure Package Tracking System
-                </p>
-              </div>
+    <LandingLayout>
+      <div className="container mx-auto p-6 max-w-7xl">
+        <div className="mb-8">
+          <div className="flex items-center space-x-3 mb-4">
+            <div className="bg-blue-600 p-2 rounded-lg">
+              <Package className="h-8 w-8 text-white" />
+            </div>
+            <div>
+              <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
+                CargoTrack Pro
+              </h1>
+              <p className="text-sm text-gray-600 dark:text-gray-300">
+                Secure Package Tracking System
+              </p>
             </div>
           </div>
         </div>
-      </header>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="space-y-8">
           {/* On-Chain Simplicity Highlight */}
           <div className="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-2xl shadow-xl p-6 border border-green-200 dark:border-green-700">
@@ -245,6 +235,6 @@ export default function CargoTrack() {
           </div>
         </div>
       </div>
-    </div>
+    </LandingLayout>
   );
 }

@@ -48,6 +48,7 @@ export default function UseCases() {
                     </div>
                 </Link>
 
+<Link href={'/use-cases/certificate-verification'}>
                 {/* Certificate Verification Use Case */}
                 <div className="bg-gradient-to-br from-emerald-50 to-green-100 dark:from-emerald-900/20 dark:to-green-900/30 p-8 rounded-2xl border border-emerald-200 dark:border-emerald-800 hover:shadow-lg transition-all duration-300 group">
 
@@ -74,6 +75,7 @@ export default function UseCases() {
                         <ArrowRight className="h-5 w-5 ml-2" />
                     </button>
                 </div>
+                </Link>
             </div>
 
             {/* CTA Section */}
