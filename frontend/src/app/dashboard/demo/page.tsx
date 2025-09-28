@@ -1,7 +1,7 @@
 "use client"
 import { Button } from "@/components/ui/button";
 import DashboardLayout from "@/layouts/dashboard-layout";
-import { UserPlus, Send, Image, FileText, Database } from "lucide-react";
+import { UserPlus, Send, Image, FileText, Database, GalleryHorizontal, Key } from "lucide-react";
 
 export default function Demo() {
 
@@ -19,6 +19,14 @@ export default function Demo() {
 
     const handleWrite = () => {
         fetch('/api/docs/write-data')
+    }
+
+    const handleOptIn = () => {
+        fetch('/api/docs/opt-in')
+    }
+
+    const handleGetNft = () => {
+        fetch('/api/docs/get-nft')
     }
 
     const getData = () => {
@@ -60,7 +68,21 @@ export default function Demo() {
             icon: Database,
             onClick: getData,
             color: "bg-teal-500 hover:bg-teal-600"
-        }
+        },
+        {
+            title: "Opt in",
+            description: "Opt in before receive an asset",
+            icon: Key,
+            onClick: handleOptIn,
+            color: "bg-blue-500 hover:bg-teal-600"
+        },
+        {
+            title: "NFT",
+            description: "Get NFT Details",
+            icon: GalleryHorizontal,
+            onClick: handleGetNft,
+            color: "bg-green-500 hover:bg-teal-600"
+        },
     ];
 
     return <DashboardLayout>

@@ -1,6 +1,6 @@
 {
   "name": "algoflow-sdk",
-  "version": "1.2.9",
+  "version": "1.3.1",
   "type": "module",
   "main": "./dist/index.js",
   "repository": {
