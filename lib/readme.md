@@ -52,6 +52,7 @@ yarn add algoflow-sdk
 - [💰 Token Operations](#-token-operations)
 - [🎨 NFT Operations](#-nft-operations)
 - [📦 Data Storage](#-data-storage-smart-contract)
+- [📦 Asset Opt In](#-asset-opt-in)
 
 
 ### 📦 Import Functions
@@ -61,7 +62,9 @@ import {
   sendToken,
   createNft,
   writeVault,
-  getVault
+  getVault,
+  getNft,
+  optIn
 } from 'algoflow-sdk'
 ```
 
@@ -140,6 +143,17 @@ const newNft = await createNft("your-mnemonic", {
 // Returns: { assetId: number, txIds: string[] }
 ```
 
+#### 🖼️ `getNft(assetId: number)`
+Creates an NFT with metadata stored on Supabase.
+
+**Parameters:**
+- `assetId` (number): Number of the asset
+
+```typescript
+const res = await getNft(746497619)
+return res.asset.params.url
+```
+
 ---
 
 ### 📦 Data Storage (Smart Contract)
@@ -163,6 +177,19 @@ Retrieves stored data from the smart contract.
 
 ```typescript
 const storedData = await getVault()
+// Returns: string
+```
+
+#### 📥 `optIn()`
+You need to authorize wallet before send an asset.
+
+**Parameters:**
+- `mnemonic` (string): Account's 25-word mnemonic phrase
+- `assetId` (number): NFT or Token assetId
+
+
+```typescript
+await optIn("25 KEY MNEMONIC", 746497619)
 // Returns: string
 ```
 

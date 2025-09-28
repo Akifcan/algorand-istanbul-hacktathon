@@ -15,6 +15,8 @@ export default function Docs() {
     { id: "create-account", label: "Create Account", icon: "🔑" },
     { id: "send-token", label: "Send Token", icon: "💸" },
     { id: "create-nft", label: "Create NFT", icon: "🎨" },
+    { id: "opt-in", label: "Opt In Asset", icon: "🔗" },
+    { id: "get-nft", label: "Get NFT", icon: "🖼️" },
     { id: "write-vault", label: "Write Data", icon: "📝" },
     { id: "get-vault", label: "Get Data", icon: "📥" },
     { id: "error-handling", label: "Error Handling", icon: "⚠️" }
@@ -112,6 +114,8 @@ yarn add algoflow-sdk`}
   createAccount,
   sendToken,
   createNft,
+  optIn,
+  getNft,
   writeVault,
   getVault
 } from 'algoflow-sdk'`}
@@ -234,6 +238,123 @@ console.log('Mnemonic:', newAccount.mnemonic)`}
                 <ul className="text-muted-foreground space-y-1">
                   <li>• <strong>mnemonic</strong> (string): Creator's 25-word mnemonic phrase</li>
                   <li>• <strong>options</strong> (object): NFT configuration with metadata and URL</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        );
+
+      case "opt-in":
+        return (
+          <div>
+            <h1 className="text-2xl sm:text-3xl font-bold mb-6">🔗 Opt In Asset</h1>
+            <div className="space-y-6">
+              <div className="bg-muted p-4 sm:p-6 rounded-lg">
+                <h3 className="text-xl font-semibold mb-4">Overview</h3>
+                <p className="text-muted-foreground">
+                  Opts into an Algorand Standard Asset (ASA) to allow your account to receive and hold the asset.
+                </p>
+              </div>
+
+              <div className="code-block p-4 sm:p-6">
+                <h3 className="text-xl font-semibold mb-4 text-white">Function Signature</h3>
+                <pre className="text-xs sm:text-sm overflow-x-auto">
+{`function optIn(mnemonic: string, assetId: number): Promise<any>`}
+                </pre>
+              </div>
+
+              <div className="code-block p-4 sm:p-6">
+                <h3 className="text-xl font-semibold mb-4 text-white">Usage Example</h3>
+                <pre className="text-xs sm:text-sm overflow-x-auto">
+{`const result = await optIn(
+    "your 25-word mnemonic phrase here",
+    746497619 // Asset ID
+)`}
+                </pre>
+              </div>
+
+              <div className="code-block p-4 sm:p-6">
+                <h3 className="text-xl font-semibold mb-4 text-white">API Route Example</h3>
+                <pre className="text-xs sm:text-sm overflow-x-auto">
+{`export async function GET(req: Request, context: any) {
+    const res = await optIn(
+        "your-mnemonic",
+        746497619
+    )
+    return Response.json({res: true});
+}`}
+                </pre>
+              </div>
+
+              <div className="border-l-4 border-accent pl-3 sm:pl-4">
+                <h4 className="font-semibold mb-2">Parameters</h4>
+                <ul className="text-muted-foreground space-y-1">
+                  <li>• <strong>mnemonic</strong> (string): Account's 25-word mnemonic phrase</li>
+                  <li>• <strong>assetId</strong> (number): The Asset ID to opt into</li>
+                </ul>
+              </div>
+
+              <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 p-4 rounded-lg">
+                <p className="text-sm text-blue-800 dark:text-blue-200">
+                  💡 <strong>Note:</strong> You must opt into an asset before you can receive it. This is a security feature of Algorand.
+                </p>
+              </div>
+            </div>
+          </div>
+        );
+
+      case "get-nft":
+        return (
+          <div>
+            <h1 className="text-2xl sm:text-3xl font-bold mb-6">🖼️ Get NFT</h1>
+            <div className="space-y-6">
+              <div className="bg-muted p-4 sm:p-6 rounded-lg">
+                <h3 className="text-xl font-semibold mb-4">Overview</h3>
+                <p className="text-muted-foreground">
+                  Retrieves NFT information and metadata from the Algorand blockchain.
+                </p>
+              </div>
+
+              <div className="code-block p-4 sm:p-6">
+                <h3 className="text-xl font-semibold mb-4 text-white">Function Signature</h3>
+                <pre className="text-xs sm:text-sm overflow-x-auto">
+{`function getNft(assetId: number): Promise<any>`}
+                </pre>
+              </div>
+
+              <div className="code-block p-4 sm:p-6">
+                <h3 className="text-xl font-semibold mb-4 text-white">Usage Example</h3>
+                <pre className="text-xs sm:text-sm overflow-x-auto">
+{`const nftInfo = await getNft(746497619)
+console.log('NFT URL:', nftInfo.asset.params.url)
+console.log('NFT Name:', nftInfo.asset.params.name)`}
+                </pre>
+              </div>
+
+              <div className="code-block p-4 sm:p-6">
+                <h3 className="text-xl font-semibold mb-4 text-white">API Route Example</h3>
+                <pre className="text-xs sm:text-sm overflow-x-auto">
+{`export async function GET(req: Request, context: any) {
+    const res = await getNft(746497619)
+    return Response.json({res: res.asset.params.url});
+}`}
+                </pre>
+              </div>
+
+              <div className="border-l-4 border-accent pl-3 sm:pl-4">
+                <h4 className="font-semibold mb-2">Parameters</h4>
+                <ul className="text-muted-foreground space-y-1">
+                  <li>• <strong>assetId</strong> (number): The Asset ID of the NFT to retrieve</li>
+                </ul>
+              </div>
+
+              <div className="border-l-4 border-accent pl-3 sm:pl-4">
+                <h4 className="font-semibold mb-2">Returns</h4>
+                <ul className="text-muted-foreground space-y-1">
+                  <li>• <strong>asset</strong> (object): Complete asset information including metadata</li>
+                  <li>• <strong>asset.params.url</strong> (string): Metadata URL</li>
+                  <li>• <strong>asset.params.name</strong> (string): Asset name</li>
+                  <li>• <strong>asset.params.unit-name</strong> (string): Asset unit name</li>
                 </ul>
               </div>
             </div>
