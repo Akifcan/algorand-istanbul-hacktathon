@@ -1,8 +1,11 @@
 {
-  "name": "lib",
+  "name": "algoflow-sdk",
   "version": "1.2.4",
   "type": "module",
   "main": "./dist/index.js",
+  "repository": {
+    "url": "https://github.com/Akifcan/algorand-istanbul-hacktathon"
+  },
   "scripts": {
     "build": "npx tsc && cp -r fn/artifacts dist/fn/",
     "build:win": "npx tsc && xcopy /E /I fn\\artifacts dist\\fn\\artifacts",

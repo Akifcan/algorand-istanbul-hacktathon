@@ -145,15 +145,14 @@
     overflow: hidden;
   }
 
-  .code-block::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 40px;
-    background: linear-gradient(90deg, #000000 0%, #1a1a1a 50%, #000000 100%);
-    border-bottom: 1px solid #333333;
+  @media (max-width: 640px) {
+    .code-block {
+      border-radius: 8px;
+    }
+    .code-block pre {
+      font-size: 12px;
+      line-height: 1.4;
+    }
   }
 
   .code-block pre {
