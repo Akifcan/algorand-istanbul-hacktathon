@@ -1,36 +1,72 @@
 "use client"
 import { Button } from "@/components/ui/button";
+import {
+    AlertDialog,
+    AlertDialogContent,
+    AlertDialogHeader,
+    AlertDialogTitle,
+    AlertDialogDescription,
+    AlertDialogFooter,
+    AlertDialogAction
+} from "@/components/ui/alert-dialog";
 import DashboardLayout from "@/layouts/dashboard-layout";
-import { UserPlus, Send, Image, FileText, Database, GalleryHorizontal, Key } from "lucide-react";
+import { UserPlus, Send, Image, FileText, Database, GalleryHorizontal, Key, Loader2 } from "lucide-react";
+import { useState } from "react";
 
 export default function Demo() {
+    const [loadingStates, setLoadingStates] = useState<{[key: string]: boolean}>({});
+    const [dialogOpen, setDialogOpen] = useState(false);
+    const [dialogContent, setDialogContent] = useState<{title: string, message: string}>({title: '', message: ''});
+
+    const handleApiCall = async (endpoint: string, title: string) => {
+        setLoadingStates(prev => ({...prev, [endpoint]: true}));
+
+        try {
+            const response = await fetch(endpoint);
+            const data = await response.text();
+
+            setDialogContent({
+                title: `${title} Response`,
+                message: response.ok ? data || 'Request completed successfully' : `Error: ${response.status} - ${data}`
+            });
+            setDialogOpen(true);
+        } catch (error) {
+            setDialogContent({
+                title: 'Network Error',
+                message: `Failed to reach the endpoint: ${error instanceof Error ? error.message : 'Unknown error'}`
+            });
+            setDialogOpen(true);
+        } finally {
+            setLoadingStates(prev => ({...prev, [endpoint]: false}));
+        }
+    };
 
     const handleCreateAccount = () => {
-        fetch('/api/docs/create-account')
+        handleApiCall('/api/docs/create-account', 'Create Account');
     }
 
     const handleSendToken = () => {
-        fetch('/api/docs/send-token')
+        handleApiCall('/api/docs/send-token', 'Send Token');
     }
 
     const handleCreateNFT = () => {
-        fetch('/api/docs/create-nft')
+        handleApiCall('/api/docs/create-nft', 'Create NFT');
     }
 
     const handleWrite = () => {
-        fetch('/api/docs/write-data')
+        handleApiCall('/api/docs/write-data', 'Write Data');
     }
 
     const handleOptIn = () => {
-        fetch('/api/docs/opt-in')
+        handleApiCall('/api/docs/opt-in', 'Opt In');
     }
 
     const handleGetNft = () => {
-        fetch('/api/docs/get-nft')
+        handleApiCall('/api/docs/get-nft', 'Get NFT');
     }
 
     const getData = () => {
-        fetch('/api/docs/get-data')
+        handleApiCall('/api/docs/get-data', 'Get Data');
     }
 
     const demoFeatures = [
@@ -39,49 +75,56 @@ export default function Demo() {
             description: "Generate a new Algorand account with wallet integration",
             icon: UserPlus,
             onClick: handleCreateAccount,
-            color: "bg-blue-500 hover:bg-blue-600"
+            color: "bg-blue-500 hover:bg-blue-600",
+            endpoint: "/api/docs/create-account"
         },
         {
             title: "Send Token",
             description: "Transfer ALGO tokens between accounts",
             icon: Send,
             onClick: handleSendToken,
-            color: "bg-green-500 hover:bg-green-600"
+            color: "bg-green-500 hover:bg-green-600",
+            endpoint: "/api/docs/send-token"
         },
         {
             title: "Create NFT",
             description: "Mint unique digital assets on Algorand",
             icon: Image,
             onClick: handleCreateNFT,
-            color: "bg-purple-500 hover:bg-purple-600"
+            color: "bg-purple-500 hover:bg-purple-600",
+            endpoint: "/api/docs/create-nft"
         },
         {
             title: "Write Data",
             description: "Store information on the blockchain",
             icon: FileText,
             onClick: handleWrite,
-            color: "bg-orange-500 hover:bg-orange-600"
+            color: "bg-orange-500 hover:bg-orange-600",
+            endpoint: "/api/docs/write-data"
         },
         {
             title: "Get Data",
             description: "Retrieve stored blockchain information",
             icon: Database,
             onClick: getData,
-            color: "bg-teal-500 hover:bg-teal-600"
+            color: "bg-teal-500 hover:bg-teal-600",
+            endpoint: "/api/docs/get-data"
         },
         {
             title: "Opt in",
             description: "Opt in before receive an asset",
             icon: Key,
             onClick: handleOptIn,
-            color: "bg-blue-500 hover:bg-teal-600"
+            color: "bg-blue-500 hover:bg-teal-600",
+            endpoint: "/api/docs/opt-in"
         },
         {
             title: "NFT",
             description: "Get NFT Details",
             icon: GalleryHorizontal,
             onClick: handleGetNft,
-            color: "bg-green-500 hover:bg-teal-600"
+            color: "bg-green-500 hover:bg-teal-600",
+            endpoint: "/api/docs/get-nft"
         },
     ];
 
@@ -122,12 +165,20 @@ export default function Demo() {
                             <Button
                                 className="w-full hover:text-white"
                                 variant="outline"
+                                disabled={loadingStates[feature.endpoint]}
                                 onClick={(e) => {
                                     e.stopPropagation();
                                     feature.onClick();
                                 }}
                             >
-                                Try Demo
+                                {loadingStates[feature.endpoint] ? (
+                                    <>
+                                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                                        Loading...
+                                    </>
+                                ) : (
+                                    'Try Demo'
+                                )}
                             </Button>
                         </div>
                     );
@@ -157,6 +208,22 @@ export default function Demo() {
                     </li>
                 </ul>
             </div>
+
+            <AlertDialog open={dialogOpen} onOpenChange={setDialogOpen}>
+                <AlertDialogContent>
+                    <AlertDialogHeader>
+                        <AlertDialogTitle>{dialogContent.title} -  <small>(CHECK THE NETWORK TAB FOR MORE DETAIL)</small></AlertDialogTitle>
+                        <AlertDialogDescription className="whitespace-pre-wrap max-h-60 overflow-y-auto">
+                            {dialogContent.message} 
+                        </AlertDialogDescription>
+                    </AlertDialogHeader>
+                    <AlertDialogFooter>
+                        <AlertDialogAction onClick={() => setDialogOpen(false)}>
+                            Close
+                        </AlertDialogAction>
+                    </AlertDialogFooter>
+                </AlertDialogContent>
+            </AlertDialog>
         </div>
     </DashboardLayout>
 }
